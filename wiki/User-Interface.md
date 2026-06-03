@@ -53,6 +53,7 @@ PANEL Keyword { ... }
 | Keyword | Meaning |
 |---------|---------|
 | `PAN_MAP Bmap;` | Background bitmap; its size determines the panel size. Redrawn on every position change. |
+| `TARGET_MAP Bmap;` | *(v3.8 manual)* An off‑screen target bitmap the panel is drawn into (double buffering). It must be large enough to hold all panel elements, or the program crashes. Without it, the panel is drawn directly to the screen. |
 | `LAYER number;` | Draw order when overlapping (higher = on top). Not changeable in‑game. |
 | `<POS_X x;` `<POS_Y y;` | Distance of the panel's upper‑left from the screen corner. Changing it in‑game redraws the whole panel. |
 
@@ -77,6 +78,7 @@ from the panel's upper‑left.
 | **Numeric** | `DIGITS x,y,len,Font,fac,Skill;` — Shows the integer part of `skill × fac` with `len` digits. `Font` has 11 chars (0–9 and space) or 128 ASCII chars. Leading zeros suppressed; negatives need a "minus" char in the font. Mind the limited skill accuracy. A one‑digit display can show pictures/symbols. |
 | **Picture** | `PICTURE x,y,Texture,Skill;` — Animated picture. The texture may have up to 32 `SIDES`, animated by `CYCLES`, switched by the integer skill value (1 = first side, …). Bitmaps shown unscaled. |
 | **Window** | `WINDOW x,y,dx,dy,Bmap,Skillx,Skilly;` — Shows a `dx×dy` cutout from `Bmap` (which must be ≥ `dx,dy`). `Skillx`/`Skilly` position the cutout (pixels from the bitmap's upper‑left); must stay inside the bitmap. |
+| **Mask** | `MASK Overlay;` — *(v3.8 manual)* An overlay drawn over the panel after every change of a display. |
 | **Mouse pointer** | `MSPRITE Overlay;` — Alternative mouse pointer within the panel. |
 | **Click action** | `<IF_KLICK Action;` — Performed by left‑clicking the panel background, instead of the global `IF_KLICK`. |
 

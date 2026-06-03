@@ -56,6 +56,26 @@ Up to **24** shading ranges may be defined per palette. If no ranges are defined
 shading is switched off (slightly faster rendering). Colors outside all ranges are
 not shaded, so they can represent light sources.
 
+### `ANIFILE` / `ANICOLOR` *(palette color animation)*
+
+> Documented in the v3.8 manual; omitted from the v3.9 reference listing.
+
+```
+ANIFILE <Filename>;
+```
+Determines the graphics file whose colors are used as the **animation palette**.
+During palette animation, some colors of the basic palette are exchanged for
+colors from this animation palette.
+
+```
+ANICOLOR c, s, l, d;
+```
+Color animation. `c` is the basic‑palette color number to animate, `s` the
+starting color of the animation palette (0…255), `l` the number of colors in the
+animation area (0…255), and `d` the time gap in ticks between color changes. Up
+to **32** colors may be animated, but none may lie within a shading range. This is
+useful for effects such as flowing water, fire, or glowing/pulsing surfaces.
+
 ### `FLAGS`
 ```
 FLAGS Keyword1, Keyword2 ...;

@@ -318,6 +318,7 @@ FLAGS Keyword1, Keyword2 ...;
 | `SHADOW` | The `ATTACH` texture appears at the actor's floor height. With a dark `DIAPHANOUS` texture this creates actor shadows. |
 | `LIGHTMAP` | Maps light and shadows onto a wall texture (see below). |
 | `SKY` | Parallax (not perspective) projection — shown as background (mountains, sky, horizon). Not zoomed, so it appears at infinite distance. Assignable to walls, floors and ceilings. |
+| `SYNC` | *(v3.8 manual)* Synchronizes the texture animation with the movement of its object. Phases change according to the object's speed, while `DELAY` sets the number of steps per phase; single phases may be skipped at higher speeds. |
 | `WIRE` | (MODEL only) Displays the model as a non‑textured wireframe with `MAPCOLOR`. |
 | `CLUSTER` | (MODEL only) Displays only the vertices of the model polygons. |
 | `NO_CLIP` | Thing/actor textures are not cut off at a region's floor or ceiling. |

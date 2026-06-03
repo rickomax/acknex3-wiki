@@ -144,6 +144,7 @@ FLAGS Flag1, Flag2 ...;
 | `<MOVED` | Set automatically if the actor moved in the latest image cycle; evaluable in actions and may need manual reset. |
 | `<PLAY` | Animates the texture for one cycle, stopping on the last phase (texture must have `ONESHOT`). `PLAY` resets to 0, triggering `EACH_CYCLE` if present. |
 | `<IMMATERIAL` | No longer affected by `SHOOT` instructions or mouse clicks. |
+| `FLAT` | *(v3.8 manual)* The object does not always turn its front side to the player; instead it behaves like a transparent wall along its thing‑angle (`ANGLE`) — intended for flat or longish objects (spears, missiles). Like `IMMATERIAL`, it is no longer affected by `SHOOT` instructions or mouse clicks. |
 | `<SENSITIVE` | `IF_HIT` triggers when the actor collides with an obstacle, and `IF_NEAR` triggers already when the actor is spotted by the player. |
 | `<FRAGILE` | The object's `IF_HIT` action may be triggered by an `EXPLODE` instruction. |
 | `<CAREFULLY` | The actor performs collision detection on his way, avoiding walls, things and other actors, and detects region changes (adjusting height if `GROUND` is not set). Costs computing time. |

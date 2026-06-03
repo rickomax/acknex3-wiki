@@ -63,3 +63,15 @@ PCs linked in the simple serial multiplayer mode do **not** transmit actor
 positions or changes to objects/regions. However, simple actions (firing, moving
 lifts or doors) can be transmitted to the other PC by evaluating the `REMOTE`
 skills.
+
+### `REMOTE_KEYS`
+
+> Documented in the v3.8 manual; omitted from the v3.9 reference listing.
+
+```
+REMOTE_KEYS Keyword11.Keyword12, Keyword21.Keyword22, ...;
+```
+A list, analogous to `EACH_TICK`, for transmitting parameter changes in
+multiplayer games. After a parameter changes, this list is checked after every
+picture build‑up and the changed parameters are transmitted by network, modem or
+serial port to the connected nodes. Keep the list short to save computing time.

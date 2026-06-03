@@ -162,14 +162,18 @@ PLAY_SOUND alert, 0.3;
 FADE_PAL   red_pal, 0.5;
 ```
 
-### `CALL` / `END` / `EXCLUSIVE`
+### `CALL` / `BRANCH` / `END` / `EXCLUSIVE`
 ```
 CALL Action;
+BRANCH Action;
 END;
 EXCLUSIVE;
 ```
 - `CALL` — performs the given action immediately, then continues with the next
   instruction (after the CALLed action ends, or during a `WAIT` in it).
+- `BRANCH` — *(documented in the v3.8 manual)* aborts the current action at this
+  point and instead executes the given new action (it does **not** return). Note
+  that `EACH_TICK` actions may not `BRANCH` to actions containing `WAIT`.
 - `END` — terminates this action.
 - `EXCLUSIVE` — terminates all other actions previously triggered by the same
   wall/thing/actor/region, preventing them from disturbing each other.
@@ -357,6 +361,7 @@ Besides object‑event actions, these keywords specify standard actions:
 | Keyword | Triggered when… |
 |---------|-----------------|
 | `<EACH_TICK Action, Action ...;` | A list of up to **16** actions performed after every frame cycle, in order. Change one with `SET EACH_TICK.n, Action` (n = 1…16); remove with `SET EACH_TICK.n, NULL`. May not contain `WAIT`, nor `CALL`/`BRANCH` to actions with `WAIT`. E.g. `EACH_TICK.16` for player movement. |
+| `<EACH_SEC Action, Action ...;` | *(v3.8 manual)* A list of up to **16** actions performed every **second**, in order. Change one with `SET EACH_SEC.n, Action` (n = 1…16); remove with `SET EACH_SEC.n, NULL`. Suited to periodic tasks that needn't run every frame. |
 | `IF_START Action;` | Performed at game start (palette change, title animation, songs, etc.). |
 | `<IF_LOAD Action;` | Performed after loading a saved score — reset panels/skills (e.g. `MOVE_MODE`) used for saving. |
 | `<IF_LEFT` / `<IF_MIDDLE` / `<IF_RIGHT Action;` | Left / middle / right mouse button (or joystick button 1 / 3 / 2). |
@@ -364,3 +369,27 @@ Besides object‑event actions, these keywords specify standard actions:
 | `<IF_MSTOP Action;` | The mouse pointer is active and held stationary for ½ second. `MOUSE_CALM` sets the immobility tolerance (default 3); `MOUSE_MOVING` reports motion (0/1). |
 | `<IF_ANYKEY Action;` | Any key is pressed. |
 | `<IF_F1 … Action;` | The `[F1]` key. Likewise `IF_F2…IF_F12`, `IF_ESC`, `IF_TAB`, `IF_CTRL`, `IF_ALT`, `IF_SPACE`, `IF_BKSP`, `IF_CUU/CUD/CUR/CUL` (cursor keys), `IF_PGUP`, `IF_PGDN`, `IF_HOME`, `IF_END`, `IF_INS`, `IF_DEL`, `IF_PAUSE`, `IF_CAR` (full stop), `IF_CAL` (comma), `IF_ENTER`, `IF_0…IF_9`, `IF_A…IF_Z`. Redefine at runtime with `SET IF_F1, action;`. |
+
+## Legacy instructions (v3.8)
+
+The v3.8 manual documented a set of single‑operation arithmetic and conditional
+instructions that were **superseded** in v3.9 by the more powerful `RULE`
+(expression assignment with functions) and structured `IF (...) { } ELSE { }` /
+`WHILE`. They are listed here for reference when reading older WDL scripts:
+
+| Legacy instruction | Form | Replaced by |
+|--------------------|------|-------------|
+| `ADD` | `ADD Keyword1, Number/Keyword2;` | `RULE Keyword1 += ...;` |
+| `ADDT` | `ADDT Keyword1, Number/Keyword2;` | `RULE Keyword1 += TIME_CORR * ...;` |
+| `SIN`, `ASIN`, `SQRT` | `SIN Keyword1, Number/Keyword2;` (etc.) | `RULE Keyword1 = SIN(...);` |
+| `AND` | `AND Keyword1, Number/Keyword2;` | `RULE Keyword1 = Keyword1 & ...;` |
+| `RANDOMIZE` | `RANDOMIZE Keyword1, Number/Keyword2;` | `RULE Keyword1 = RANDOM(...);` |
+| `IF_ABOVE` / `IF_BELOW` / `IF_EQUAL` | `IF_ABOVE Keyword, Number/Keyword2;` (runs only the next instruction) | `IF (a > b) { ... }` etc. |
+| `IF_MIN` / `IF_MAX` | `IF_MIN Skill;` (skill at its `MIN`/`MAX` border) | `IF (skill <= skill_min) { ... }` |
+| `ELSE` | `ELSE;` (runs the next instruction only if the previous `IF_…` was skipped) | the `ELSE { ... }` block of `IF` |
+| `SKIP` | `SKIP Number;` (relative jump; negative skips backward) | `GOTO Label;` |
+| `PLACE` | `PLACE Object;` | `SHAKE Object;` (identical purpose) |
+
+> With `IF_EQUAL`, only flags or integer skills that have **not** been altered by
+> rules may be compared — fixed‑point/time‑corrected values are rarely exactly
+> equal, so use `IF_ABOVE`/`IF_BELOW` (or `>`/`<`) for those.
