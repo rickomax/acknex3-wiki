@@ -76,6 +76,19 @@ animation area (0…255), and `d` the time gap in ticks between color changes. U
 to **32** colors may be animated, but none may lie within a shading range. This is
 useful for effects such as flowing water, fire, or glowing/pulsing surfaces.
 
+### `CYCLE` *(whole‑palette animation)*
+
+```
+CYCLE Number;
+```
+Position of this palette in an automatic palette‑switching cycle. During play and
+level loading, palettes are switched in ascending `CYCLE` order — each switch goes
+to the palette with the next‑higher `CYCLE` value — driven by the predefined skill
+`PALANIM_DELAY` (ticks between switches; default 0 = off). A `CYCLE` of 0
+(default) excludes the palette from the animation. This can show a palette
+animation such as an animated loading bar. See `PALANIM_DELAY` in
+[[Skills and Role Playing Games]].
+
 ### `FLAGS`
 ```
 FLAGS Keyword1, Keyword2 ...;

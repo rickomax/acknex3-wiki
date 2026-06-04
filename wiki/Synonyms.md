@@ -45,3 +45,4 @@ ACTION lift1_to_lift2 {
 | `#TOUCH_TEX` | The texture last touched by the mouse. |
 | `#TOUCH_REG` | The region whose floor or ceiling was last touched by the mouse. |
 | `<TOUCH_TEXT` | Assigning a `TEXT` here makes all `TOUCH` texts appear with that text's font and flags. If the text's `VISIBLE` flag is set, `TOUCH` texts appear at its `POS_X`/`POS_Y` instead of at the mouse position. |
+| `<COMMAND_LINE` | A `STRING` synonym whose contents are passed as a command‑line `-d`/`-u` `DEFINE` parameter to the next level started with `LEVEL`. See [[Levels Saving and Multiplayer]]. |

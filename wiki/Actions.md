@@ -109,8 +109,8 @@ Executes the first block only if the expression is true (non‑zero); otherwise 
 
 Only parameters of the same type may be compared; flags use 1/0, non‑numerical
 parameters use `NULL` for non‑existence. Comparisons evaluate to 0 (false) or 1
-(true) and may be combined with brackets. **Use `==` for equality, not `=`!** `IF`
-instructions may be nested.
+(true) and may be combined with brackets. **Use `==` for equality, not `=`!** Up
+to **50** `IF`/`WHILE` instructions may be nested within one another.
 ```
 IF (x<0) {
     RULE y=-1;
@@ -368,7 +368,7 @@ Besides object‑event actions, these keywords specify standard actions:
 | `<IF_KLICK Action;` | Left‑clicking in the 3D window without hitting any object or panel. |
 | `<IF_MSTOP Action;` | The mouse pointer is active and held stationary for ½ second. `MOUSE_CALM` sets the immobility tolerance (default 3); `MOUSE_MOVING` reports motion (0/1). |
 | `<IF_ANYKEY Action;` | Any key is pressed. |
-| `<IF_F1 … Action;` | The `[F1]` key. Likewise `IF_F2…IF_F12`, `IF_ESC`, `IF_TAB`, `IF_CTRL`, `IF_ALT`, `IF_SPACE`, `IF_BKSP`, `IF_CUU/CUD/CUR/CUL` (cursor keys), `IF_PGUP`, `IF_PGDN`, `IF_HOME`, `IF_END`, `IF_INS`, `IF_DEL`, `IF_PAUSE`, `IF_CAR` (full stop), `IF_CAL` (comma), `IF_ENTER`, `IF_0…IF_9`, `IF_A…IF_Z`. Redefine at runtime with `SET IF_F1, action;`. |
+| `<IF_F1 … Action;` | The `[F1]` key. Likewise `IF_F2…IF_F12`, `IF_ESC`, `IF_TAB`, `IF_CTRL`, `IF_ALT`, `IF_SPACE`, `IF_BKSP`, `IF_CUU/CUD/CUR/CUL` (cursor keys), `IF_PGUP`, `IF_PGDN`, `IF_HOME`, `IF_END`, `IF_INS`, `IF_DEL`, `IF_PAUSE`, `IF_CAR` (full stop), `IF_CAL` (comma), `IF_ENTER`, `IF_0…IF_9`, `IF_A…IF_Z`. On US keyboards also `IF_EQUALS`, `IF_PERIOD`, `IF_COMMA`, `IF_BRACKL`, `IF_BRACKR`, `IF_SEMIC`, `IF_BKSL`, `IF_SLASH`. Redefine at runtime with `SET IF_F1, action;`. |
 
 ## Legacy instructions (v3.8)
 

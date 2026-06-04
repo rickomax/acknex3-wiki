@@ -13,6 +13,26 @@ Changing only the topography with the `MAP` instruction keeps all skills except
 the player position. All walls, things, regions and actors are loaded from the new
 WMP file.
 
+### Passing `DEFINE`s to a new level (`COMMAND_LINE`)
+
+The predefined string synonym `COMMAND_LINE` passes a single `DEFINE` parameter to
+a level started with `LEVEL`, via a `-d` option (or `-u` to *undefine* a parameter
+that was previously `DEFINE`d). Command‑line `-d` definitions are otherwise global
+— they persist across all further levels started with `LEVEL` or `MAP`.
+```
+STRING svga_str,    "-d SVGA";
+STRING no_svga_str, "-u SVGA";
+
+ACTION start_level_with_svga {
+    SET   COMMAND_LINE, svga_str;
+    LEVEL <newlevel.wdl>;
+}
+ACTION start_level_without_svga {
+    SET   COMMAND_LINE, no_svga_str;
+    LEVEL <newlevel.wdl>;
+}
+```
+
 ## Saving and loading
 
 The `SAVE` and `LOAD` instructions save and reload game scores. The following are
@@ -44,13 +64,23 @@ and game saving are discussed in more detail in the [[Tutorial Wednesday|tutoria
 
 ## Multiplayer mode
 
-To let two players play as opponents (Deathmatch mode), link two PCs via a
-nullmodem cable (serial laplink / Norton Commander / Interlink) or via a LAN with
-IPX protocol. The **same level** must run on both computers.
+To let two players play as opponents (Deathmatch mode), link two PCs. The **same
+level** must run on both computers. Since the Spring 1998 (professional Windows)
+release, four connection methods are available — start each PC with `-NODE 0` or
+`-NODE 1` plus one of:
 
-To establish the link, give the serial port (`-COM n`) and the network number
-(`-NODE 0` or `-NODE 1`) at start‑up. Omitting `-COM` assumes an IPX connection.
-The `NODE` given at start‑up can be queried in actions with the `NODE` skill.
+| Option | Connection |
+|--------|------------|
+| `-COM n` | Serial nullmodem cable (laplink / Norton Commander / Interlink) on port *n* |
+| `-MODEM` | Modem (enter the modem and phone number in the box after game start) |
+| `-TCP` | Network or internet via TCP/IP (enter the session's server address) |
+| `-IPX` | LAN via IPX protocol (e.g. Novell) |
+
+The `NODE` given at start‑up can be queried in actions with the `NODE` skill. To
+try the network mode: define two actors (one `TARGET NODE0`, one `TARGET NODE1`),
+build a Windows runtime module with PUBLISH, then start `WWRUN levelname -NODE 0
+-IPX` on the first PC, and once it is running, `WWRUN levelname -NODE 1 -IPX` on
+the second.
 
 After starting, the engine checks whether an ACKNEX session is already running on
 the serial link or IPX network. If so, it joins; otherwise it opens a new session.
