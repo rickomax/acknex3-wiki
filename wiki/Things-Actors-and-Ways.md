@@ -22,7 +22,14 @@ WAY Keyword;
 ```
 
 The actor assigned a way "wanders" in a cycle from one waypoint to the next. No
-collision detection is carried out unless the actor's `CAREFULLY` flag is set.
+collision detection is carried out unless the actor's `CAREFULLY` flag is set. An
+actor walks the way in **reverse** when its `SPEED` is negative; the following
+instructions make it turn around on the spot:
+```
+RULE MY.SPEED *= -1;
+IF (MY.SPEED>0) { RULE MY.WAYPOINT += 1; }
+ELSE           { RULE MY.WAYPOINT -= 1; }
+```
 
 A thing or actor definition contains the following assignments, in sequence.
 
@@ -94,7 +101,7 @@ ACTOR sword_arm {
 | `<REL_ANGLE` `<REL_DIST number;` | Angle and distance to the player for a `STICK` actor; change to move him around the player. |
 | `<HEIGHT Number;` | Height of the object's "feet" — absolute (with `GROUND`) or relative to the region floor. A slight sink (e.g. `HEIGHT = -0.25`) can look more realistic. |
 | `<ANGLE Number;` | Object angle in radians (0…6.28), added to the WED angle; changeable by actions. |
-| `<SPEED Number;` | Horizontal speed in steps per tick (default 0). |
+| `<SPEED Number;` | Horizontal speed in steps per tick (default 0). A negative value makes a `WAY` actor travel its way in reverse. |
 | `<VSPEED Number;` | Vertical speed; depending on `TARGET`, either a slope (tangent of vertical angle) or speed in steps per tick (default 0). |
 | `ASPEED Number;` | Maximum rotation speed in radians per tick (default 0 = disabled). Multi‑sided/MODEL actors look more natural on ways with ~0.2. |
 | `MAP_COLOR n;` | Color (0…255, default 1) representing the object on the map. 0 = not drawn; 1 = default color (skills `COLOR_ACTORS`, `COLOR_THINGS`). |
@@ -134,6 +141,7 @@ FLAGS Flag1, Flag2 ...;
 | `#THING` / `#ACTOR` | `THING` is set automatically for things and actors; `ACTOR` for actors. Used to determine the type of an object synonym. |
 | `<INVISIBLE` | The object is invisible and passable, as if absent. Its actions don't run and events don't trigger. Things/actors defined in WDL but not placed are automatically `INVISIBLE`. |
 | `<PASSABLE` | Passable to the player. |
+| `<IMPASSABLE` | The thing or actor becomes impenetrable, even if invisible. (Since the Spring 1998 release this flag, formerly walls‑only, may also be set on things and actors.) |
 | `#VISIBLE` | Set automatically while visible. |
 | `<BERKELEY` | Inactive (`INVISIBLE`) while unseen and the player is outside its `DIST`. Stops actor movement out of sight and saves rendering time with many animated objects. |
 | `<LIBER` | The object moves and runs actions even outside `CLIP_DIST` (costs computing time). Useful for behaviour independent of the player — patrolling guards, `EACH_TICK` time bombs, projectiles. |

@@ -60,6 +60,7 @@ changed. Skills marked `#` are set automatically.
 | `<ASPECT` | Height‑to‑width ratio of the rendered scene (0.1…10; default 1 = 1:1). |
 | `<EYE_DIST` | Eye distance for 3D glasses (default 0.5 steps; needs `-3D_SIMEYE`). 0 disables the stereoscopic effect; stereo mode halves the frame rate. |
 | `<SKY_OFFS_X` `<SKY_OFFS_Y` | Shift of all sky textures in pixels. `SKY_OFFS_X` must never be negative; increasing it periodically gives a "wandering cloud" effect. |
+| `<PALANIM_DELAY` | Time in ticks between automatic cyclic palette switches (default 0 = off). Drives palette animation during play and level loading (e.g. a loading bar); the switching order is given by the PALETTE `CYCLE` parameter. See [[Palettes]]. |
 | `<MOTION_BLUR` | Motion blur parameter (0…1). Reduces resolution during movement for smoother motion on slow machines (default 0). |
 | `<BLUR_MODE` | 1 = motion blur always on; 0.5 = on when player or mouse moves; 0 = default. |
 | `<RENDER_MODE` | Rendering activity: `2` full (after screen‑size change or player displacement), `1` partial (after moving objects/walls/region heights), `0.5` default (renders per player movement), `0` suppressed (titles, credits, menus). Returns to 0.5 automatically each frame. |
@@ -103,7 +104,7 @@ changed. Skills marked `#` are set automatically.
 | `#JOYSTICK_X` `#JOYSTICK_Y` | Joystick axis movement (−255…+255). |
 | `#MOUSE_LEFT` `#MOUSE_MIDDLE` `#MOUSE_RIGHT` `#JOY_4` | Button state (0/1). The three mouse buttons map to joystick buttons 1, 3, 2. |
 | `#KEY_ANY` | 1 if any key is pressed. |
-| `#KEY_F1…KEY_F12`, `#KEY_ESC`, `#KEY_TAB`, `#KEY_SHIFT`, `#KEY_CTRL`, `#KEY_ALT`, `#KEY_SPACE`, `#KEY_BKSP`, `#KEY_CUU/CUD/CUR/CUL`, `#KEY_PGUP`, `#KEY_PGDN`, `#KEY_HOME`, `#KEY_END`, `#KEY_INS`, `#KEY_DEL`, `#KEY_PAUSE`, `#KEY_CAR`, `#KEY_CAL`, `#KEY_PLUS`, `#KEY_MINUS`, `#KEY_ENTER`, `#KEY_0…KEY_9`, `#KEY_A…KEY_Z` | State of the key (0/1). |
+| `#KEY_F1…KEY_F12`, `#KEY_ESC`, `#KEY_TAB`, `#KEY_SHIFT`, `#KEY_CTRL`, `#KEY_ALT`, `#KEY_SPACE`, `#KEY_BKSP`, `#KEY_CUU/CUD/CUR/CUL`, `#KEY_PGUP`, `#KEY_PGDN`, `#KEY_HOME`, `#KEY_END`, `#KEY_INS`, `#KEY_DEL`, `#KEY_PAUSE`, `#KEY_CAR`, `#KEY_CAL`, `#KEY_PLUS`, `#KEY_MINUS`, `#KEY_ENTER`, `#KEY_0…KEY_9`, `#KEY_A…KEY_Z`, and (US keyboards) `#KEY_EQUALS`, `#KEY_PERIOD`, `#KEY_COMMA`, `#KEY_BRACKL`, `#KEY_BRACKR`, `#KEY_SEMIC`, `#KEY_BKSL`, `#KEY_SLASH` | State of the key (0/1). |
 
 ### Player input forces
 

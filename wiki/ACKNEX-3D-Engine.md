@@ -16,7 +16,9 @@ Apart from the file name, the following WED command line options are available:
 | `-D name` | Defines the token `name` for evaluation in the WDL file by `IFDEF`. |
 | `-NODE n` | Number of the network node (0…1) for multiplayer games (commercial/professional only). |
 | `-COM n` | Port number of the serial link (1…4) for multiplayer communication. The serial interface may not be used by the mouse and must have a free interrupt. COM1/COM3 use INT4; COM2/COM4 use INT3. |
-| `-IPX` | Use a LAN with IPX protocol instead of a serial link for multiplayer (professional Windows version only). |
+| `-MODEM` | Connect via modem for 2‑player mode (professional Windows version only). Enter the modem and phone number in the box that appears after game start. |
+| `-TCP` | Connect via a network or the internet using the TCP/IP protocol (professional Windows version only). Enter the session's server address in the box that appears after game start. |
+| `-IPX` | Use a LAN with IPX protocol (e.g. Novell) instead of a serial link for multiplayer (professional Windows version only). |
 | `-OS` | Run without sound. |
 | `-OM` | Run without music. |
 | `-OCD` | Run without activation of audio CDs. |
