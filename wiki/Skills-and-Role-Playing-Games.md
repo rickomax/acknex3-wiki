@@ -60,7 +60,7 @@ changed. Skills marked `#` are set automatically.
 | `<ASPECT` | Height‑to‑width ratio of the rendered scene (0.1…10; default 1 = 1:1). |
 | `<EYE_DIST` | Eye distance for 3D glasses (default 0.5 steps; needs `-3D_SIMEYE`). 0 disables the stereoscopic effect; stereo mode halves the frame rate. |
 | `<SKY_OFFS_X` `<SKY_OFFS_Y` | Shift of all sky textures in pixels. `SKY_OFFS_X` must never be negative; increasing it periodically gives a "wandering cloud" effect. |
-| `<PALANIM_DELAY` | Time in ticks between automatic cyclic palette switches (default 0 = off). Drives palette animation during play and level loading (e.g. a loading bar); the switching order is given by the PALETTE `CYCLE` parameter. See [[Palettes]]. |
+| `<PALANIM_DELAY` | Time in ticks between automatic cyclic palette switches (default 0 = off). Drives palette animation during play and level loading (e.g. a loading bar); the switching order is given by the PALETTE `CYCLE` parameter. Switching **continues during `LEVEL` instructions** — so the animation keeps running while all other actions are stopped during loading. See [[Palettes]]. |
 | `<MOTION_BLUR` | Motion blur parameter (0…1). Reduces resolution during movement for smoother motion on slow machines (default 0). |
 | `<BLUR_MODE` | 1 = motion blur always on; 0.5 = on when player or mouse moves; 0 = default. |
 | `<RENDER_MODE` | Rendering activity: `2` full (after screen‑size change or player displacement), `1` partial (after moving objects/walls/region heights), `0.5` default (renders per player movement), `0` suppressed (titles, credits, menus). Returns to 0.5 automatically each frame. |

@@ -269,7 +269,7 @@ not buffered.
 | `INKEY String;` | Copies keyboard input into the named string, waiting for `[Return]` (like `WAIT`; no SAVE/LOAD runs meanwhile). `[Esc]`/arrows abort (restoring the previous content). Edit with `[BackSpace]`, `[Del]`, cursor keys. If the string is shown in a `TEXT`, the input and a flashing cursor (char 127) are visible. `RESULT` is set on termination (−1 = Esc, 72 = Up, 73 = PgUp, 80 = Down, 81 = PgDn, else 0). Length via `STR_LEN`. |
 | `SET_STRING String1, String2;` | Copies string 2 into string 1 (length not exceeding string 1's original). |
 | `ADD_STRING String1, String2;` | Concatenates string 2 onto string 1 (don't exceed string 1's original length). |
-| `TO_STRING String, Skill;` | Copies the digit representation of a skill into the string. |
+| `TO_STRING String, Skill;` | Copies the digit representation of a skill into the string (don't exceed the string's original length). |
 | `SET_SKILL Skill, String;` | If the string holds a number, sets the skill to its numeric value. |
 | `FIND Text, String;` | Sets the `OFFSET_Y` and `INDEX` of the `TEXT` to the string whose first characters match. `RESULT` = the `INDEX` (−1 if none found). Afterwards `LINES` and `SIZE_Y` hold the TEXT's character/pixel line counts. |
 | `SET_INFO String, Object;` | Built‑in debugger: writes all interesting parameters of the object into the string (≥1000 chars) for on‑screen display. Available only in WED, not the runtime module. |
