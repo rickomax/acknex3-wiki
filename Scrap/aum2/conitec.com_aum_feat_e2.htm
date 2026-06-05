@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="Acknex Users Magazine features" name="keywords"/>
+<meta content="Mozilla/4.0 [en] (Win95; I) [Netscape]" name="GENERATOR"/>
+<title>Features</title>
+</head>
+<body alink="#0000FF" background="maintex.jpg" bgcolor="#FFFFFF" link="#FF0000" text="#FFFFFF" vlink="#00B400">
+<h2>
+<img height="100" src="conitec.com_aum_glueh.gif" width="95"/></h2>
+<ul>
+<ul>
+<ul>
+<h1>
+<font color="#FF0000">New Features</font></h1>
+</ul>
+</ul>
+</ul>
+<img height="49" src="conitec.com_aum_leiste.jpg" width="916"/>
+<br/> 
+<h2>
+<font color="#FF0000">Polygon Actors</font></h2>
+<font color="#FFFFFF">Whow! Finally. The times are over when pixeled sprites
+plodded jerkily throught the levels. What had been a standard in games
+like QUAKE for quite a while has now finally been implemented in ACKNEX:
+actors made up of little polygons. Great! But how do you do it?</font>
+<p><font color="#FFFFFF">What we need are A) a model and B) a palette.</font>
+<p><font color="#FFFFFF">I won't expound on how to construct a model in
+this article. There are several tools they can be generated with. In the
+present case a simple geometrical figure was created using <a href="http://www.3dmatrix.com/_private/free_qME.htm" target="_TOP">QMe</a>.
+Having the right palette is the bigger problem. There are several tools
+for extracting a palette from an CPX file. One of them, <a href="http://conitec.com/pcx2pal.zip">PCX2PAL</a>,
+you can download here. Follow the instructions of the DOS program you are
+given by simply invoking it. You'll wind up with a file with the extension
+".pal", which you need to change into ".lmp" for QMe.</font>
+<br/> 
+
+<p><font color="#FFFFFF">Once you have generated and saved your model (cf.
+QMe tutorial), you'll have a file with the extension ".mdl" which, like
+a bitmap, may be defined in the WDL like that:</font>
+<br/><font color="#FFFFFF"> </font>
+<br/><font color="#FFFFFF"> </font>
+<ul>
+<pre><font color="#FFFFFF">MODEL modernart1_mod &lt;art1.mdl&gt;;</font></pre>
+</ul>
+<font color="#FFFFFF">So the model is defined like a BMAP....</font>
+<ul>
+<pre><font color="#FFFFFF">TEXTURE ModArt1_model_tex { 
+ SCALE_XY    12,12;
+ Model       modernart1_mod;</font></pre>
+<pre><font color="#FFFFFF">}</font></pre>
+</ul>
+<font color="#FFFFFF">...and is simply assigned to the texture. Afterwards
+we define it as an ACTOR or..</font>
+<br/><font color="#FFFFFF"> </font>
+<ul>
+<pre><font color="#FFFFFF">THING ModernArt1_3D {TEXTURE ModArt1_model_tex;}</font></pre>
+</ul>
+<font color="#FFFFFF">After that you only need to place it inside the level!
+Caution: if you're dowloading the <a href="http://conitec.com/aum/art1.mdl">test model</a>, you
+should be aware that you'll most likely have the wrong palette.</font>
+<br/><font color="#FFFFFF"> </font>
+<br/><font color="#FFFFFF"> </font>
+<h2>
+<font color="#FF0000">How to generate a model in QMe: A short introduction.</font></h2>
+<font color="#FFFFFF">Really only a short step-by-step introduction for
+generating a small test model. I won't say anything about working with
+the skin editor.</font>
+<br/><font color="#FFFFFF"> </font>
+<ul><font color="#FFFFFF">1. After starting the program choose "New Model"
+from the file menue.</font>
+<p><font color="#FFFFFF">2. Click on "Edit Frames" in the second icon board
+- a three-partite screen appears. In the large field you'll see a grid
+which you can move with both mouse buttons:</font>
+<p><font color="#FFFFFF">3. Click left and hold - horizontal and vertical
+relocation of the object</font>
+<p><font color="#FFFFFF">4. Click right and hold - rotating the object.</font>
+<p><font color="#FFFFFF">5. Click "Geometry": a menue with several grid
+structures appears.</font>
+<p><font color="#FFFFFF">6. Choose the model "Cone" in the menue "Geometry"
+- a cone appears in the centre of the grid.</font>
+<br/><font color="#FFFFFF"> </font></p></p></p></p></p></ul>
+<font color="#FFFFFF">Now you can play around with the object at your heart's
+delight, addingt further models to the present one, setting light sources,
+loading a skin, editing one or the other edge of the grid etc. Take your
+time and you'll learn how to generate a model. Or you won't and hire a
+commercial artist who knows how to do it!</font>
+<br/><font color="#FFFFFF"> </font>
+<br/><font color="#FFFFFF"> </font>
+<br/><font color="#FFFFFF"> </font>
+<br/><font color="#FFFFFF"> </font>
+<br/> 
+<br/> 
+</p></p></p></body>
+</html>

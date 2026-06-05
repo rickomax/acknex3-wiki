@@ -1,0 +1,251 @@
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR"/>
+<meta content="Acknex Users Magazine hints" name="keywords"/>
+<meta content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot" name="Template"/>
+<title>Frequently asked questions</title>
+</head>
+<body alink="#0000FF" background="maintex.jpg" bgcolor="#000000" link="#FFFF00" vlink="#00FF00">
+<h2><img height="100" src="conitec.com_aum_glueh.gif" width="95"/></h2>
+<dir>
+<dir>
+<font color="#ff0000"><h2 align="center"></h2></font><big><em><font color="#80FFFF">FREQUENTLY
+    ASKED QUESTIONS</font></em></big><font color="#ff0000">
+</font></dir>
+</dir>
+
+<p><img height="25" src="conitec.com_aum_leiste.jpg" width="570"/></p>
+<font color="#ff00ff"><div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<font color="#ff0000"><td width="100%"></td></font></tr></table></center></div></font><strong><font color="#C0C0C0">This is
+    our new section, with frequently asked (and answered) questions. If you run into trouble,
+    just post your question to the </font><a href="www.conitec.com_guestbook.html" target="_top">Forum</a><font color="#C0C0C0"> and we'll try to answer it. This section
+    collects the best questions and answers from the Forum. It will be updated more often then
+    the others, so better check it out periodically.</font></strong>
+
+
+
+<p> </p>
+<font color="#ff00ff">
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<font color="#ff0000"><td width="100%"></td></font></tr></table></center></div></font><font color="#C0C0C0"><strong>Diese
+    Seite wird von der deutsch- und der englischsprachigen Ausgabe gemeinsam benutzt. Unsere
+    nicht-englischsprachigen Anwender bitten wir um Verständnis dafür, dass die hier
+    aufgelisteten Fragen aus Aktualitätsgründen nicht übersetzt werden.</strong></font>
+
+
+
+<p><font color="#ff00ff"> </font></p>
+<p><img height="25" src="conitec.com_aum_leiste.jpg" width="570"/></p>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>: </font><font color="#C0C0C0">What I really want to do is have the badguys shoot a visible bullet…
+    And this bullet will hurt anyone it hits. Like a giant fireball an ACTOR shoots…</font>
+</strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">Let the badguy SHOOT the player in order to get the angle relative to the
+    player (SHOOT_ANGLE); then start a fireball with TARGET BULLET and this angle. You can get
+    the VSPEED by dividing the vertical by the horizontal distance.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>: </font><font color="#C0C0C0">say you have several levels-----AND say the player kills everyone in one
+    level and some the next - is it possible to come back to those maps and find it the way
+    they left it with everyone dead - or some people dead and so on.............</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">Yes, it is possible.
+    Save the level under a special name on exit, and on returning, use the LOAD instead of the
+    MAP instruction.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">How do you make the badguys shoot bullets you can see? Whenever I shoot 2
+    times the old flying bullets disappear. How can I have the old bullet stay while the new
+    one appears?</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">You have to define several bullets, let's say 10. Before emitting one, an
+    action scans the bullets to check which one is still on the way (=INVISIBLE not set), and
+    which one is free to use (INVISIBLE set). Have a look at the INTERRUP.WDL to get the idea.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>: </font><font color="#C0C0C0">Can you tell me how I can make one enemy's shooting affect another enemy's
+    if_hit command?</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">It will, if he emits a bullet actor. I give you two solutions: </font></strong></p>
+<p><font color="#C0C0C0"><strong>1) Beam the player to the target enemy's position, then
+    let the first enemy SHOOT; if HIT_DIST is above zero, call the 2nd ememy's IF_HIT action.
+    Then place the player back to his original position. </strong></font></p>
+<p><font color="#C0C0C0"><strong>2) Set the fragile flag on the target enemy, and use
+    EXPLODE instead of SHOOT.</strong></font></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">I'm currently using QMe, the MDL editor. But is there any other
+    professional tool that can create MDL &amp; animation more easily? Is all MDL created by
+    QMe?</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">I know four mdl editors: QME, Meddle, Quark, Qmetal. Look for Quake pages
+    on the Internet, and choose the best tool.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">I followed the tutorial that came with Game Studio and when I try to run
+    the level that I created by using SHIFT-^ all I see is a blank screen.</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">A blank (all black)
+    screen normally appears if you've forgotten to define a color palette for your level, or
+    if you placed player's start position outside the map.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">FOG indoors or within my cities is working great but outdoors is a no go.
+    It seems the SKY texture isn't affected by fog. So the farther the horizon line never
+    looks foggy or never the sky above you.</font></strong><p><strong><font color="#00FFFF"><big><big>A:
+    </big></big></font><font color="#C0C0C0">Yes, the sky isn't affected by the shading. For
+    fog use a monocolored sky bitmap of the same color as #1 of the palette. If it's foggy,
+    you won't see anything but the fog color in the distance.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">I am now getting NEXUS errors. Something about slices too small or too
+    many walls. I have a 948 walls level. It is a huge outdoors area. It is the surrounds a
+    lava pit. Any ideas?</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">Yes, simply increase the NEXUS from the default value of 14 to a higher
+    value (e.g. 50) until you don't get the errors any more.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">The image of the weapon cannot exceed the boundaries of the screen. That
+    is we cannot move the image outside of the screen and this is really getting in our way.
+    So is there any way that we can move an overlay out of the boundaries of the screen?</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">Yes there is: Use no
+    OVERLAY, but a PANEL with flag TRANSPARENT for the weapon. Panels are displayed slower,
+    but can exceed the screen. Overlays can't, they have no clipping code.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">I managed to assign z for jump but for some reason I can't figure out how
+    to assign "x" or whatever key for duck or crouch.</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">In the original
+    move.wdl ducking is done by the FORCE_UP skill, which is set to a negative value by
+    pressing the [END] key. So if you assign an action to e.g. IF_X which will perform
+    "RULE FORCE_UP=-KEY_SENSE;", you can use each other key. Please note that IF_Z
+    and IF_Y are exchanged on US and some European keyboards.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">Also this may be dumb. But I am stumped on making single key toggle
+    actions. I made a player_light action which works but I had to use "K" and
+    "L" keys (off and on).</font></strong><p><font color="#00FFFF"><big><big><strong>A:
+    </strong></big></big></font></p>
+<pre><font color="#C0C0C0"><strong>Try this: 
+    </strong><small>ACTION light_toggle { 
+        RULE PLAYER_LIGHT += 1; 
+        IF (PLAYER_LIGHT &gt; 1) { </small>
+<small>	  SET PLAYER_LIGHT,0; </small>
+<small>	}
+    }</small></font></pre>
+<p><font color="#C0C0C0"><strong>This toggles the light between 0 and 1.</strong></font></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">How do you rotate a floor texture?</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">Change the region's
+    FLOOR_ANGLE by an action.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">When I move up a set of stairs, the player jumps up each step suddenly.
+    How do I make it so the player "glides" up the steps?</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">The player actually
+    glides, perhaps a little too fast, you can change this by modifying his move action (see
+    tutorial, reduce the knee_fac skill).</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">I am trying to put a door under a door frame. The door itself is a region.
+    I make the door swing by using the ROTATE command. Whenever the door leaves the frame
+    region, it messes up. How do I put a door under a frame with no errors?</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">You have to make the
+    frame as large as the walls never cross.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">Is it possible to create a field that is so big, that it takes a couple of
+    minutes to reach the other side? Kind of like 4 football fields long?</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">Yes. There is no
+    size limitation. It would be a good idea to split long walls into smaller ones.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<hr width="50%"/>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><strong><font color="#00FFFF"><big><big>Q</big></big>:  </font><font color="#C0C0C0">Is there a TARGET command that allows an actor to keep going in the angle
+    that it was last left at. For example, I have an ACTOR moving away from me with REPEL. I
+    need a command that sets all of the actor's actions to NULL, but the ACTOR keeps moving
+    until he hits a wall triggering an IF_HIT action.</font></strong><p><strong><font color="#00FFFF"><big><big>A: </big></big></font><font color="#C0C0C0">TARGET BULLET keeps
+    his old angle and speed.</font></strong></p></td>
+</tr>
+</table>
+</center></div>
+<p> </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table border="0">
+<tr>
+<td width="50%"><p align="left"><a href="conitec.com_aum_start_e3.htm"><img border="0" height="35" src="conitec.com_aum_button2.jpg" width="37"/></a><big><font color="#00FFFF"><strong><em>back to mainpage</em></strong></font></big></p></td>
+<td width="50%"><a href="conitec.com_aum_start3.htm"><img border="0" height="35" src="conitec.com_aum_button2.jpg" width="37"/></a><big><font color="#00FFFF"><strong><em>zurück zur Titelseite</em></strong></font></big></td>
+</tr>
+</table>
+</center></div>
+</body>
+</html>
