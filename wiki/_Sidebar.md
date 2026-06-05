@@ -26,3 +26,7 @@
 - [[Tutorial Wednesday]]
 - [[Tutorial Thursday]]
 - [[Tutorial Friday]]
+
+**Community (AUM)**
+- [[Tips and Tricks]]
+- [[FAQ]]

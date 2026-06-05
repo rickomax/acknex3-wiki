@@ -45,6 +45,13 @@ topography file, the latter normally produced with the **World Editor (WED)**.
 | [[Tutorial Thursday]] | Artificial intelligence |
 | [[Tutorial Friday]] | Panels, menus and overlays |
 
+## Community Knowledge (ACKNEX User's Magazine)
+
+| Page | Contents |
+|------|----------|
+| [[Tips and Tricks]] | Worked WDL techniques from AUM: BELOW regions, rotating regions, beam actions, inventory panels, underwater air bars, zoom, and more |
+| [[FAQ]] | Frequently asked questions and answers from the AUM forum |
+
 ---
 
 *Original credits — WDL interpreter: Volker Kleipa · ACKNEX engine: Johann
