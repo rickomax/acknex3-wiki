@@ -1,0 +1,542 @@
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR"/>
+<meta content="Acknex Users Magazine hints" name="keywords"/>
+<meta content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot" name="Template"/>
+<title>AUM hint_e3</title>
+</head>
+<body alink="#00FFFF" background="maintex.jpg" link="#FFFF00" text="#FFFFFF" vlink="#00FF00">
+<h2><img height="100" src="conitec.com_aum_glueh.gif" width="95"/></h2>
+<font color="#ff0000">
+<p align="center"> </p>
+<h2 align="center"></h2></font><big><em><font color="#80FFFF"><big>HINTS III</big></font></em></big><font color="#ff0000">
+<p><img height="25" src="conitec.com_aum_leiste.jpg" width="570"/></p>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="1" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><b><font color="#C0C0C0">Welcome back to a wealth of tips and tricks.
+    They are meant to make using the engine easier and who knows? they might even suggest an
+    idea or two to some of you. </font></b>  <p><b><font color="#C0C0C0">In the
+    current issue we even have two authors on this page:</font></b>  </p>
+<p><b><font color="#C0C0C0">To begin with, there is  <a href="http://members.aol.com/mtbhatty" target="_top">M. Bhatty</a>. From him we have a
+    contribution dealing with <a href="#Anker4">Video-Sprites</a>.</font></b>  </p>
+<p><b><font color="#C0C0C0">And then there ist  <a href="http://www.geocities.com/siliconvalley/haven/8151" target="_top">Gerorge Pirvu</a>.
+    Henceforth he shall be the what you might call "responsible by default" and will
+    be contributing with the regularity inherent to this magazine.  So let him take the
+    floor now:</font></b></p></td>
+</tr>
+</table>
+</center></div>
+<p> </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="1" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td colspan="4" width="100%"></td></tr></table></center></div></font><strong><font color="#C0C0C0" size="4">H</font><font color="#C0C0C0" size="3">ello again. This section will keep us busy with
+    drag-and-drop panels, a must for adventure / role-playing games. You can't swim? Just
+    follow us in this approach to underwater regions and airbars. Finally, shoot your enemies
+    from long distance with Acknex's error-free zoom in/out. </font></strong><font color="#ff0000"><p></p></font><font color="#00FFFF" size="3"><strong>From now on, we'll give
+    you standalone demos that you can try out and modify at your will!</strong></font><font color="#ff0000">
+<p align="center"></p></font><font color="#C0C0C0"><strong><font size="3">My Topics in this
+    issue:</font><small> </small></strong></font>
+
+<tr>
+<td width="25%"><font size="3"><b><a href="#Anker1">Panels: Veni, vidi,Vici</a><u> </u></b></font></td>
+<td width="25%"><font color="#00ff00" size="3"><a href="#Anker2"><b>Underwater regions and
+    airbars</b></a></font></td>
+<td width="25%"><font color="#00ff00" size="3"><a href="#Anker3"><b>Zooming in and out
+    without errors</b></a></font></td>
+<td width="25%"><font color="#00ff00" size="3"><a href="conitec.com_aum_hint_e2.htm"><b>Previous topics</b></a></font></td>
+</tr>
+
+
+<p> </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<font color="#ff0000"><td width="100%"></td></font><big><font color="#64FFC8"><big><strong>Panels
+    for dragging and dropping:</strong></big></font></big><p><font color="#C0C0C0" size="3"><strong>Many
+    Acknex users asked us how could they do a panel with objects for an inventory. It seemed
+    to be a difficult thing. Now the fully - commented script is here. Enjoy it!</strong></font></p>
+<p><font color="#C0C0C0" size="3"><strong>First of all, we need a mouse pointer. This is
+    done in mouse.wdl. We have decided to let the player activate the cursor when he needs, by
+    right clicking; this way the mouse pointer won't stay in our way if we don't need it. We
+    have placed the line </strong></font><font face="Arial" size="3"><dir>
+<dir>
+<p></p></dir></dir></font><font color="#C0C0C0" size="2">IF_RIGHT mouse_start;</font><font face="Arial" size="3"></font></p>
+
+
+<p><font color="#C0C0C0" size="3"><strong>at the end of move.wdl; we don't want to
+    waste an each_tick action. We also have </strong></font><font face="Arial" size="3"><dir>
+<dir>
+<p></p></dir></dir></font><font color="#C0C0C0" size="2">SET IF_LEFT, mouse_check; </font><font face="Arial" size="3"></font></p>
+
+
+<p><strong><font color="#C0C0C0" face="Arial" size="3">i</font><font color="#C0C0C0" size="3">n move.wdl; this action checks if the mouse pointer is visible or
+    not, and was added for those of you who intend to do an action / adventure game, because
+    if the mouse pointer isn't visible, you should be able to shoot with the left button. </font></strong><font size="3"></font></p>
+<p><font color="#C0C0C0" size="3"><strong>This panel has two skills: health and IQ;
+    they can be increased by eating and finding keys. The objects that are to be displayed in
+    our panel are contained in a font.</strong></font></p>
+<font face="Arial" size="3"><blockquote>
+<blockquote>
+<p></p></blockquote></blockquote></font><font color="#C0C0C0" size="2">FONT objfont,&lt;objfont.pcx&gt;,28,22;</font><font face="Arial" size="3">
+
+
+<p></p></font><strong><font color="#C0C0C0" size="3">As you can see, it is a font that has
+    28x22 sized "letters". Objfont.pcx is a bitmap that contains 11 (0…9 and
+    space) characters. Nobody can tell us to put numbers in, so we put pictures instead. In
+    objfont.pcx we only use 0,1,2,3,4 for empty, greenkey, cake, fish, bluekey. This way, when
+    we display 0, an empty space will appear, 1 = greenkey, 2 = cake and so on. So if I want
+    to display the fish, I just say display 3? Right.</font></strong><font size="3">
+</font><p><strong><font color="#C0C0C0" size="3">The big difference between overlays and
+    panels is that overlays can't contain digits. So we're going to use a panel as our big
+    panel:</font></strong></p>
+<p><font color="#C0C0C0" size="2">PANEL big_panel { <br/>
+    PAN_MAP bigpanel_map; <br/>
+    POS_X 0; <br/>
+    POS_Y 355; <strong>// the panel has 320x45 pixels; if we choose POS_Y 355<br/>
+    // the panel will fit in nicely (355+45=400);<br/>
+    // X320x400</strong></font><br/>
+<font color="#C0C0C0" size="2">DIGITS 70,20,3,font01,1,health;<br/>
+<strong><strong>// displays the health and iq at 70,20 and </strong><br/>
+</strong>DIGITS 100,20,3,font01,1,iq;<strong> <strong>// 100,20 pixels from panel's upper
+    left corner <br/>
+    // with 3 digits. Skills are multiplied by 1<br/>
+    // (no change) before they are displayed.</strong></strong></font><font size="2"><br/>
+<font color="#C0C0C0">DIGITS 145,11,1,objfont,1,bluekeyplaced;<strong><strong> //
+    *placed skills are set to 0 a game</strong></strong></font><br/>
+<font color="#C0C0C0">DIGITS 187,11,1,objfont,1,greenkeyplaced;<strong><strong>
+    // start, so these are their values</strong></strong></font><br/>
+<font color="#C0C0C0">DIGITS 229,11,1,objfont,1,cakeplaced;<strong><strong> //
+    before picking up the objects.</strong></strong></font><br/>
+<font color="#C0C0C0">DIGITS 271,11,1,objfont,1,fishplaced;<strong><strong> //
+    This way, the panel shows empty<br/>
+    // spaces (that is 0 in our objfonts)</strong></strong></font><br/>
+<font color="#C0C0C0">FLAGS REFRESH;<strong><strong> // big_panel is redrawn
+    every frame cycle.</strong></strong></font><br/>
+<font color="#C0C0C0">IF_KLICK place_objects;<strong><strong> // if you pick up
+    an object and click <br/>
+    // the panel, you will place it in the panel.</strong><br/>
+</strong>}</font></font></p>
+<strong><font size="3"><p><font color="#C0C0C0"><strong>Let's say you pick up the cake.
+    The skill cakeplaced takes the value 2 and will be displayed as cake. </strong></font></p>
+<p></p></font><font color="#C0C0C0" size="3"><strong>And now, the last section. If we pick up
+    an item, we need to change MSPRITE from the default mouse sprite (mouse.pcx) to cake,
+    fish, keys. We need to use overlays:</strong></font><font size="3">
+<p></p></font></strong><font color="#C0C0C0" size="2">OVLY greenkey, &lt;objects.pcx&gt;,
+    26,3,26,13<br/>
+    OVLY bluekey, &lt;objects.pcx&gt;, 56,3,33,15;<br/>
+    OVLY fish, &lt;objects.pcx&gt;, 92,4,33,13;<br/>
+    OVLY cake, &lt;objects.pcx&gt;, 93,19,33,14;<br/>
+    OVERLAY greenkey_ovl {OVLYS greenkey;}<br/>
+    OVERLAY bluekey_ovl {OVLYS bluekey;}<br/>
+    OVERLAY fish_ovl {OVLYS fish;}<br/>
+    OVERLAY cake_ovl {OVLYS cake;}</font><font size="3">
+<strong><p></p></strong></font><font color="#C0C0C0" size="3"><strong>We have to know what overlay is
+    active at any moment, so we define:</strong></font><font size="3">
+<p></p></font><font color="#C0C0C0" size="2">SKILL cursorgreenkey { VAL 0; } <br/>
+    SKILL cursorbluekey { VAL 0; }<br/>
+    SKILL cursorfish { VAL 0; }<br/>
+    SKILL cursorcake { VAL 0; }<br/>
+    SKILL cursornormal { VAL 1; } <strong>// MSPRITE = mouse_sprite at game start</strong></font><font size="3">
+</font><font color="#00ff00" size="3"><p></p></font><strong><font color="#C0C0C0" size="3"><strong>We
+    also need to know what objects are placed:</strong></font><font size="3">
+<p></p></font></strong><font size="2"><font color="#C0C0C0">SKILL greenkeyplaced { VAL 0; }<strong>
+    // nothing placed at game start<br/>
+</strong>SKILL bluekeyplaced { VAL 0; }</font><br/>
+<font color="#C0C0C0">SKILL fishplaced { VAL 0; }<br/>
+    SKILL cakeplaced { VAL 0; }</font></font><font size="3"><strong>
+</strong></font><p><font color="#C0C0C0" size="3"><strong>We shall define our objects as
+    actors. They won't move, but we have two benefits: </strong></font><ul style="color: rgb(0,255,255)">
+<li><font color="#C0C0C0" size="3"><strong>We have 8 different skills for every actor that
+        we can use; </strong></font></li>
+<li><font color="#C0C0C0" size="3"><strong>Every actor can (and this time will) use
+        overlays.</strong></font></li>
+</ul>
+<font size="3"><p></p></font><font color="#C0C0C0" size="2">ACTOR greenkey_act {<br/>
+    TEXTURE greenkey_tex;<br/>
+    OVERLAY greenkey_ovl;<br/>
+    SKILL1 50; <strong>// SKILL1 holds the IQ value;</strong><br/>
+    SKILL2 0; <strong>// SKILL2 holds the health value;</strong><br/>
+    SKILL8 1; <strong>// SKILL8 will store the current MSPRITE;</strong><br/>
+    }</font><font size="3"></font></p>
+<p><font color="#C0C0C0" size="3"><strong>You can use the other skills to add other
+    proprieties to the player. <br/>
+    When you click the actor's texture, his corresponding IF_CLICK action <br/>
+    will be initiated. For all our actors, we use the same action:</strong></font></p>
+<font size="3"><p></p></font><font color="#C0C0C0" size="2">ACTION takeobject {<br/>
+    IF_EQUAL cursornormal,0; <strong>// if we have picked an object we can't<br/>
+</strong>END;<strong> // pick another one before placing the first</strong><br/>
+    IF_EQUAL MY.SKILL8,1; <strong>// if actor's SKILL8 is 1, then we have picked</strong><br/>
+    SET cursorgreenkey,1; <strong>// the green key and so on. </strong><br/>
+    IF_EQUAL MY.SKILL8,2; <br/>
+    SET cursorcake,2;<br/>
+    IF_EQUAL MY.SKILL8,3; <br/>
+    SET cursorfish,3;<br/>
+    IF_EQUAL MY.SKILL8,4; <br/>
+    SET cursorbluekey,4;<br/>
+    SET MY.INVISIBLE,1; <strong>// after clicking the actor</strong><br/>
+    SET MY.PASSABLE,1; <strong>// it becomes invisible</strong><br/>
+    SET MSPRITE,MY.OVERLAY; <strong>// MSPRITE changes to actor's overlay</strong><br/>
+    ADD iq,MY.SKILL1; <strong>// iq gets increased by actor's SKILL1</strong><br/>
+    ADD health,MY.SKILL2; <strong>// health gets increased by actor's SKILL2</strong><br/>
+    SET cursornormal,0; <strong>// we reset cursornormal</strong> <br/>
+    }</font><font size="3">
+</font><p><font color="#C0C0C0" size="3"><strong>How do we place the objects? With:</strong></font></p>
+<font size="3"><p></p></font><font color="#C0C0C0" size="2">ACTION place_objects {<br/>
+    SET greenkeyplaced,cursorgreenkey; <strong>// the skills displayed by the panel</strong><br/>
+    SET cakeplaced,cursorcake; <strong>// are updated</strong><br/>
+    SET fishplaced,cursorfish;<br/>
+    SET bluekeyplaced,cursorbluekey;<br/>
+    SET MSPRITE,mouse_sprite; <strong>// MSPRITE returns to pointer</strong><br/>
+    SET cursornormal,1; <strong>// and we are allowed to pick other objects</strong><br/>
+    }</font><font size="3">
+</font><p><strong><font color="#C0C0C0" size="3">That's all. You can find some more
+    comments in our standalone demo.</font></strong></p>
+<p><strong><font size="3"><font color="#C0C0C0">Yes, you can download the demo</font> <a href="http://conitec.com/aum/panels1.zip">HERE</a></font><font color="#C0C0C0" size="4">.</font></strong>
+</p></tr>
+</table>
+</center></div>
+<p> </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<font color="#ff0000"><td width="100%"></td></font><a name="Anker2"></a><big><strong><font color="#64FFC8"><big>Underwater regions and airbars:</big></font></strong></big><font color="#ff0000" face="Arial" size="4"><p></p></font><font size="3"><font color="#C0C0C0"><strong>Underwater
+    regions are always looking good in games. With Acknex, they are easy to do, either. We
+    will show you how to build them. Looking for an airbar code? You are at the right place.</strong></font>
+<p><font color="#C0C0C0"><strong>First of all, we need to define two below regions, one
+    above the other, to serve us as under water and out of water regions. </strong></font></p></font>
+<font color="#ff0000" face="Arial" size="2"><p></p></font><font color="#C0C0C0" size="2">REGION
+    belowroom01 { <strong>// that's our under the water region</strong><br/>
+    FLOOR_HGT 0;<br/>
+    CEIL_HGT 45;<br/>
+    FLOOR_TEX floor_tex;<br/>
+    CEIL_TEX uwater_tex;<br/>
+    AMBIENT 0.4;<br/>
+    IF_ARISE region_arise; <strong>// this triggers an action in move.wdl<br/>
+    }</strong></font><font size="2">
+<font color="#ff0000" face="Arial"><p></p></font><font color="#C0C0C0">REGION room01 { <strong>//
+    that's our out of the water region</strong><br/>
+    FLOOR_HGT 45;<br/>
+    CEIL_HGT 275;<br/>
+    FLOOR_TEX water_tex;<br/>
+    CEIL_TEX ceil_tex;<br/>
+    AMBIENT 0.7;<br/>
+    BELOW belowroom01;<br/>
+    IF_DIVE region_dive; <strong>// triggers an action in move.wdl</strong><br/>
+    }</font></font><font size="3">
+</font><p><font color="#C0C0C0" size="3"><strong>Please note that first region's ceiling
+    height must be equal with the second's floor height. And now, we need to define the airbar
+    panel:</strong></font></p>
+<p><small><font color="#C0C0C0">BMAP airbar_map,&lt;airbar.pcx&gt;;</font></small></p>
+<p><font color="#C0C0C0"><small>PANEL airpanel {<br/>
+    VBAR 280,30,20,airbar_map,2,secspassed; <strong>// changes with secspassed</strong><br/>
+    FLAGS REFRESH;<br/>
+    }<br/>
+</small><big><br/>
+</big><strong>The skill secspassed has a maximum value of 10, so the player dies if he
+    remains more than 9 seconds under the water. <br/>
+</strong><br/>
+<strong>When diving, the ACTION counteron is triggered in move.wdl:</strong></font></p>
+<p><font color="#C0C0C0"><small>ACTION counteron {<br/>
+    SET SECS,0; <strong>// reset the seconds</strong><br/>
+    SET EACH_TICK.05,update_panel;<br/>
+    SET PANELS.10,airpanel; <strong>// shows the aibar pane</strong>l<br/>
+    }<br/>
+<br/>
+    ACTION update_panel {<br/>
+    IF_ABOVE secspassed,9; <strong>// if more than 9 seconds have passed </strong><br/>
+    BRANCH diejerome; <strong>// the player dies</strong><br/>
+    RULE secspassed = SECS;<strong> // updating secspassed every second</strong><br/>
+    }<br/>
+<br/>
+    ACTION diejerome { <strong>// we didn't want to kill the player in this demo</strong><br/>
+    BEEP; <strong>// simply ADD health,-1000 if your player has health implemented</strong><br/>
+    WAITT 32; <strong>// the beeps are delayed. </strong><br/>
+    }</small><br/>
+<br/>
+<small><strong>When arising, the ACTION counteroff is triggered in move.wdl:</strong><br/>
+    ACTION counteroff {<br/>
+    SET secspassed,0; <strong>// resets secspassed</strong><br/>
+    SET EACH_TICK.05,NULL;<br/>
+    SET PANELS.10,NULL; <strong>// hides the airpanel</strong><br/>
+    }</small><br/>
+<br/>
+<strong>Yes, this example has a standalone demo <big><a href="http://conitec.com/aum/airbar1.zip">HERE</a>.</big></strong></font>
+</p></tr>
+</table>
+</center></div>
+<p> </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<font color="#ff0000"><td width="100%"></td></font><a name="Anker3"></a><big><strong><font color="#64FFC8"><big>Zoom in / out without errors:</big></font></strong></big><p><strong><font color="#C0C0C0">Zoom in / out without errors: is this possible?</font></strong></p>
+<p><strong><font color="#C0C0C0">Zooming in and out is great. Most of the games aren't
+    using a decent zooming. Except yours! Using a small trick (and Acknex) you will get a good
+    progressive zooming, without any image errors! Just read on. <br/>
+</font></strong></p>
+<p><font color="#C0C0C0"><strong>The tutorial shows us how to do a normal zoom in / out.
+    This had to be placed in move.wdl to get the zoom working: </strong><br/>
+<br/>
+<small>SKILL PLAYER_ARC { MIN 0.5; MAX 2; }<br/>
+    IF_ABOVE KEY_INS,0; <br/>
+    RULE PLAYER_ARC = PLAYER_ARC - 0.1;<br/>
+    IF_ABOVE KEY_DEL,0; <br/>
+    RULE PLAYER_ARC = PLAYER_ARC + 0.1;</small><br/>
+<br/>
+<strong>When I first tried it, I realized that I need to do two corrections: </strong></font><ul>
+<li style="color: rgb(0,255,255)"><font color="#C0C0C0"><strong>PLAYER_ARC needs to be MAX 1
+        to get the proper zooming effect, because at game start, PLAYER_ARC = 1;<br/>
+</strong></font></li>
+<li style="color: rgb(0,255,255)"><strong><font color="#C0C0C0">I wanted to lower MIN 0.5 in
+        order to get a higher zooming effect, but the projection of the textures was distorted,
+        although if I was rotating the player a little afterwards, the errors were corrected.</font></strong></li>
+</ul>
+<p><strong><font color="#C0C0C0">I finally got this working: </font></strong></p>
+<p><font color="#C0C0C0"><small>SKILL PLAYER_ARC { MIN 0.1; MAX 1; }<br/>
+    IF_ABOVE KEY_INS,0; <br/>
+    RULE PLAYER_ARC = PLAYER_ARC - 0.03;<br/>
+    IF_ABOVE KEY_INS,0; <br/>
+    ADD PLAYER_VROT,0.001; // easily rotate the player while zooming<br/>
+    IF_ABOVE KEY_DEL,0; <br/>
+    RULE PLAYER_ARC = PLAYER_ARC + 0.03;<br/>
+    IF_ABOVE KEY_DEL,0; <br/>
+    ADD PLAYER_VROT,-0.001;<br/>
+    }</small></font>
+</p></p></tr>
+</table>
+</center></div>
+<p> </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="0" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<font color="#ff0000"><td width="100%"></td></font><strong><font color="#C0C0C0">Next issue
+    we'll shoot with bullets from the player to the actors and from the actors to the
+    player. But that's not all! We'll have other interesting things to build, so stay tuned!</font></strong>
+</tr>
+</table>
+</center></div>
+<p> </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="1" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><a name="Anker4"></a><big><font color="#64FFC8"><big><strong>Video-Sprites:
+    </strong></big></font></big><p><b><font color="#C0C0C0">Creating BMP objects through
+    digital image processing</font></b>  </p>
+<p><b><font color="#C0C0C0">Bitmap objects with a two-dimensional appearance constitute
+    one of the basic problems of creating a game - they need a lot of work and constitute a
+    considerable source for errors even for gifted draughtsmen through the alternating views
+    they present. Polygones on the other hand lack life-like curves. <i>Lands of Lore 2:
+    Götterdämmerung </i>offers digitised video sequences of single sprites. This method may
+    be applied to Acknex as a "3D Scanner" using a video camera, offering many
+    varieties of usage. </font></b></p></td>
+</tr>
+</table>
+</center></div>
+<p> </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="1" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><big><b><font color="#00FFFF">Required Hardware:</font></b> </big> <p><b><font color="#C0C0C0">Apart from a videocamera - any one using any one format will do - you'll
+    need a video board that allows you to digitise analog videos. A powerful board with
+    excelent performance I can for example recommend you <i>Fast AV-Master</i> (available at
+    about $700); a PCI video board capable of processing the huge amounts of data generated by
+    digital videos. Less powerful boards may cause a disrupted succesion of images due to the
+    need to load the image. But if you wish to incorporate only videos that were substantially
+    reduced in size, the use of a cheaper video board may be sufficient (ask your local
+    dealer!).</font></b>  </p>
+<p><b><font color="#C0C0C0">To install the board, depending on the board all you have to
+    do is to reserve the specified memory area (in the Windows95 Hardware Settings).</font></b> 
+    </p>
+<p><b><font color="#C0C0C0">After you have installed the board you may plug a camera or
+    VCR directly into the VHS or S-VHS inlets and archive the sequence to be digitised to the
+    hard disk. The necessary transfer cables usually are supplied together with the video
+    camera. </font></b>  </p>
+<p><big><b><font color="#00FFFF">Required Software:</font></b></big>  </p>
+<p align="left"><b><font color="#C0C0C0">Basic image processing software is usually
+    included when you buy a quality video board, but you will find it unsuitable for the
+    purposes of effective sequencing. The currently best software for video processing is
+    either <i>Ulead-Studio 2.5</i> or <i>Adobe Premiere 4.2</i>. The latter offers a wealth of
+    additional filters that may be applied to the single objects.</font></b></p>
+<p align="center">  <img height="240" src="conitec.com_aum_aum-prm.jpg" width="320"/> </p>
+<p><b><font color="#C0C0C0">For postprocessing of bitmaps you have created an effective
+    graphic program like <i>Paint Shop Pro 4.0 </i>will do<i>.</i></font></b></p></td>
+</tr>
+</table>
+</center></div>
+<p>  </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="1" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><font color="#64FFC8" size="5"><b>Producing Sprites with the video
+    camera:</b></font><p><b><font color="#C0C0C0">The video camera can be used as a 3D scanner
+    for characters, creatures or simply for objects.</font></b>  </p>
+<p><b><font color="#00FFFF"><big>Example A:</big> </font><font color="#C0C0C0">THING
+    bottle (two dimensional)</font></b>  </p>
+<p><b><font color="#C0C0C0">It is our intent to create a row of different bottles and
+    glasses for a bar. So instead of sitting down and labouriously drawing the row bottle by
+    bottle, realising that your talent for drawing with the mouse barely covers creating a
+    game of Tic-Tac-Toe, we use the video camera.</font></b>  </p>
+<p><b><font color="#C0C0C0">Put the object to be recorded in front of a neutral background
+    (preferably green or blue). The camera records the object from the angel chosen by us -
+    preferably one that corresponds to the point of view of our game character - and then we
+    digitise our short video of a bottle to the hard disk. </font></b>  </p>
+<p><b><font color="#C0C0C0">Using our video processing software we now export the frame of
+    our choice into a graphics file. </font></b>  </p>
+<p><b><font color="#C0C0C0">Afterwards we open the graphics file with the graphic software
+    and adjust whatever needs adjusting: size, little errors... Then we select our bottle as
+    the object to be copied and paste it in our graphic file for game objects. What remains is
+    to include the graphic section into our WDL...</font></b>  </p>
+<p><b><font color="#00FFFF"><big>Example B:</big> </font><font color="#C0C0C0">THING
+    Bottle (three dimensional)</font></b>  </p>
+<p><b><font color="#C0C0C0">The technique may be put to further use for those bitmap
+    fanatics who enjoy walking around objects. We again place the object in front of a neutral
+    background, but this time on something like a potter's wheel. Then we record a slow(!),
+    complete revolution of the object (changing the angle of the light at the same time, to
+    avoid having the back of the object, supposed to lie in the shadow, appear as well lighted
+    as the front).</font></b>  </p>
+<p><b><font color="#C0C0C0">Again we digitise the sequence and call it up with the video
+    processing software. We then shorten the sequence to the desired number of images. Which
+    means that the movement needs to be slower than the number of sides of our intended
+    object.</font></b>  </p>
+<p><b><font color="#C0C0C0">But now we do not export a single frame, but create the entire
+    revolution as a numbered row of bitmaps, using the software options.</font></b>  </p>
+<p><b><font color="#C0C0C0">Afterwards we again switch to our graphic software, where we
+    cut each single frame, format it and write it into a separate character graphic.</font></b> 
+    </p>
+<p><b><font color="#C0C0C0">And the rest is...the usual WDL programming</font></b>  </p>
+<p><b><font color="#00FFFF"><big>Example C:</big> </font><font color="#C0C0C0">ACTOR
+    Fighter </font></b>  </p>
+<p><b><font color="#C0C0C0">The same principle applies to persons; we record a person
+    wearing the desired outfit in front of a neutral background, having him or her performing
+    complete and self-contained movements. It is rather important under the circumstances that
+    the movements of the different actions originate from the same starting conditions.</font></b> 
+    </p>
+<p><b><font color="#C0C0C0">We may for example define a fighter with the following
+    movements:</font></b>  <ol style="color: rgb(0,255,255)">
+<li style="color: rgb(0,255,255)" type="disc"><b><font color="#C0C0C0">Standing (Waiting)</font></b></li>
+<li><b><font color="#C0C0C0">Turning around</font></b></li>
+<li><b><font color="#C0C0C0">Walking (towards the player)</font></b></li>
+<li><b><font color="#C0C0C0">Dialogue</font></b></li>
+<li><b><font color="#C0C0C0">Fighting (against the player)</font></b></li>
+<li><b><font color="#C0C0C0">Retreating A (away from player)</font></b></li>
+<li><b><font color="#C0C0C0">Retreating B (towards a group of allies)</font></b></li>
+<li><b><font color="#C0C0C0">Dying</font></b></li>
+</ol>
+<p><b><font color="#C0C0C0">The character of the fighter now offers potential for complex
+    interaction (simple shot-'em-up <i>á la</i> Doom does grow boring after while, after
+    all). The standing fighter (fucntion <i>standing</i>) may (but does not have to) be
+    visible from all sides, for example allowing the player to sneak up to him from behind; so
+    what we need is an actor turning around in the exact same posture in a sort of stop motion
+    mode, so that we later can extract single images from our video.</font></b>  </p>
+<p><b><font color="#C0C0C0">As soon as we "wake up" the fighter according to his
+    paramters (e.g. IF_NEAR of a sentinel) the fighter turns around (function <i>turning
+    around </i>- implying that we need at least eight different views of the start position)
+    and starts moving towards us (function <i>walking</i>). We now need a complete walking
+    motion. Attention: the arms must be in the same position at the beginning and the end of
+    the walking cycle! Recording the actor from a somewhat greater distance, using a telephoto
+    lense, does have the added advantage of avoiding a too hurried progress of the actor
+    towards the camera which would create unfavourable changes of perspectives. </font></b> 
+    </p>
+<p><b><font color="#C0C0C0">The <i>dialogue mode</i> also only call for a frontal view of
+    the fighter, who is bound to face the player each time he talks to him. The same is true
+    for the <i>fighting mode</i>. </font></b>  </p>
+<p><b><font color="#C0C0C0">The function <i>Retreating A</i> is also rather simple, as the
+    fighter is moving away from us along a straight line; the same rules that were valid for
+    the advancing movement  apply here.</font></b>  </p>
+<p><b><font color="#C0C0C0">Opposed to that the function <i>Retreat B</i> is rather
+    demanding, because we need a self-contained movement from at least 8 directions of
+    movement performed smoothly, to enable us to "edit" to different perspectives
+    (e.g when intercepting the retreating fighter).</font></b>  </p>
+<p><b><font color="#C0C0C0">The function <i>Dying</i> may be well served with one position
+    (preferably lying down), but does offer a more realistic view if comprised of different
+    views.</font></b></p></p></td>
+</tr>
+</table>
+</center></div>
+<p> </p>
+<hr width="50%"/>
+<p> </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="1" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" cellspacing="1" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><font color="#64FFC8" size="5"><b>Producing sprites using a video camera
+    and morphing:</b></font><p><b><font color="#C0C0C0">Making films and then bitmaps 
+    out of people in costumes is something easily done. It is less easy when you're looking
+    for other lifeforms, dragons, for example. </font></b>  </p>
+<p><b><font color="#C0C0C0">But even here a video camera and morphing software (available
+    on many shareware CD ROMs) make it a job easily done.</font></b>  </p>
+<p><b><font color="#00FFFF"><big>Example D:</big> </font><font color="#C0C0C0">THING/
+    ACTOR Dragon</font></b>  </p>
+<p><b><font color="#C0C0C0">As a first step, we create a screenshot of a miniature dragon
+    (very detailled tin models are available from role play specialty outlets!) and save it as
+    a graphics file.</font></b>  </p>
+<p><b><font color="#C0C0C0">We only want the dragon to be able to open his jaws and
+    slightly lower his forelegs.</font></b>  </p>
+<p align="left"><b><font color="#C0C0C0">We then smooth out the graphics file by
+    exchanging the almost-neutral background we put on video by a onehundred percent single
+    colour background. So here's ourstart image:</font></b></p>
+<p align="center"><img height="240" src="conitec.com_aum_aum_drg1.gif" width="320"/> </p>
+<p><b><font color="#C0C0C0">We then cut out hands and jaws separately and rotate the
+    respective cut until it has reached the desired position, saving the outcome as a separate
+    image. </font></b>  </p>
+<p align="left"><b><font color="#C0C0C0">Then we retouch hand and lower jaw from our start
+    image, insert the separate image elements hand and lower jaw, saving the result after
+    applying the final touches as our final image.</font></b></p>
+<p align="center">  <img height="240" src="conitec.com_aum_aum_drg2.gif" width="320"/> </p>
+<p><b><font color="#C0C0C0">Then we open both images in our morphing software (<i>Ulead-Morph</i>
+    proves to be more convenient than <i>Photomorph</i>). Then we define in close succession
+    the picture elements to be moved in the start image. The software locks onto the final
+    image in the same X/Y position. Here we move the picture elements to the desired positions
+    and make the software compute a sequence of bmps instead of an AVI.  </font></b> 
+    </p>
+<p><b><font color="#C0C0C0">And last but not least we cut the singele images, change it to
+    the correct size and paste it to the respective spot in the dragon's movements phases
+    image file.</font></b>  </p>
+<p><b><font color="#C0C0C0">This method may be used for THINGS and with greater
+    expenditure of work, for AcTORS as well. Potential of this simplified F/X method may
+    easily be extended to FLI/FLC film sequences in cut scenes.</font></b></p></td>
+</tr>
+</table>
+</center></div>
+<p> </p>
+<hr width="50%"/>
+<p align="center">  </p>
+<div align="center"><center>
+<table bgcolor="#234545" border="1" bordercolor="#183030" bordercolordark="#1B3434" bordercolorlight="#3D7878" style="border-left: 4px solid rgb(0,45,45); border-right: 4px solid rgb(56,114,114); border-top: 4px solid rgb(0,47,47); border-bottom: 4px solid rgb(56,114,114)" width="90%">
+<tr>
+<td width="100%"><font color="#64FFC8" size="5"><b>Further reading:</b></font><p><font color="#C0C0C0"><b>Riempp, Roland &amp; Arno Schlotterbheck, <i>Digitales Video in
+    interaktiven Medien: Einführung und Anwendung für PC,</i> Macintosh und CD-I, Berlin:
+    Springer-Verlag, 1995.</b></font>  </p>
+<p><b><font color="#C0C0C0">Primarily describes the technical side of digital videos and
+    offers a comprehensive survey of existing technology.</font></b>  </p>
+<p><b><font color="#C0C0C0">Eberl, Markus &amp; Harald Hahn, <i>Adobe Premiere 4 für
+    Windows: Das Kompendium</i> (+ CD-ROM), Haar bei München: Markt &amp; Technik Buch- und
+    Software-Verlag GmbH, 1996.</font></b>  </p>
+<p><b><font color="#C0C0C0">Offers an introduction to video processing with Adobe, using
+    hands-on examples, proving to be a more comprehensie and comprehensible hand book than the
+    original.</font></b></p></td>
+</tr>
+</table>
+</center></div>
+<p><a href="conitec.com_aum_start_e3.htm"><img border="0" height="35" src="conitec.com_aum_button2.jpg" width="37"/></a><big><font color="#00FFFF"><strong><em>back to mainpage</em></strong></font></big></p>
+</body>
+</html>

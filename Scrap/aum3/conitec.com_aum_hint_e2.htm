@@ -1,0 +1,361 @@
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="Acknex Users Magazine hints" name="keywords"/>
+<meta content="Mozilla/4.0 [en] (Win95; I) [Netscape]" name="GENERATOR"/>
+<title>hints</title>
+</head>
+<body alink="#0000FF" background="maintex.jpg" bgcolor="#FFFFFF" link="#FF0000" text="#FFFFFF" vlink="#00B400">
+<h2>
+<img height="100" src="conitec.com_aum_glueh.gif" width="95"/></h2>
+<ul>
+<ul>
+<ul>
+<h2>
+<font color="#FF0000">Acknex Hints</font> <font color="#FFFF00"> II</font></h2>
+</ul>
+</ul>
+</ul>
+<img height="49" src="conitec.com_aum_leiste.jpg" width="916"/>
+<p><font color="#D5D500">And whoever has found a solution to some special
+problem is hereby cordially invited to contribute to this magazine. The
+first one who actually took this to heart is Markus Fabian. He found a
+solution to the tiresome palette problem under Adobe-PhotoShop and made
+it availabel here. Today there's another tip from him, this time concerning
+"textures".</font>
+<p><font color="#80FFFF"><font size="+1"> </font></font>
+<br/> 
+
+<p>
+<hr width="50%"/>
+<p><font color="#FFFFFF">And again we are going to start with a simple
+one. And a word to all you eyebrow-raising WDL cracks: you had best get
+on to the chapter on the mouse pointer. And all those of you who always
+wanted to know how to write that damn diving action or how to simply beam
+your player: just you read on. </font>
+<br/> 
+
+<p><font color="#FFFF00"><font size="+1">Topics in this issue:</font></font>
+<table border="">
+<tr>
+<td><b><a href="#Anker1">Beam-Actions</a></b> </td>
+<td><b><a href="#Anker2">Textures from the Faller-Archives:</a></b> </td>
+<td><b><a href="#Anker4">A mouse pointer to click with</a></b> </td>
+<td><b><a href="conitec.com_aum_hint_e.htm">Previous topics</a></b></td>
+</tr>
+</table>
+<h2>
+<a name="Anker1"></a><font color="#808000">How to write a beam-action?</font></h2>
+<font color="#FFFFFF">Show me the Trekkie who doesn't know the words: "Beam
+me up Scottie!" And show me the D**M-Freak who doesn't expect to find beaming
+points in secret-regions. It's simply a standard. And certainly a must
+for every designer during development of a game, as  constantly shifting
+the player in the Wed does get on your nerves after a while. And even in
+the game itself there are few problems you can easily solve with a hidden
+beam action: for example if the player is to be placed on a higher or lower
+story that cannot and should not be created as belows for performance reasons.
+It thus does make sense to write yourself a little beam action and assign
+it to a certain key. Of course you should not forget to disable this "cheat"
+before the things go out into the stores....!</font>
+<br/><font color="#000000"> </font>
+<ul>
+<h4>
+<font color="#FF0000">1. Debug-Beam (simple jump)</font></h4>
+</ul>
+To begin with, we assign the entire beam action to the key "b":
+<ul>
+<pre><font color="#66FFFF">IF_B beam_me;</font></pre>
+</ul>
+<font color="#FFFFFF">Afterwards we define ourselves a Thing serving as
+a mark for the jump. The Thing may have any texture whatsoever or even
+be invisible (Flag Invisible):</font>
+<br/> 
+<ul>
+<pre><font color="#66FFFF">THING Beamer      {TEXTURE transparent_black_tex; FLAGS INVISIBLE;}</font></pre>
+</ul>
+<font color="#FFFFFF">Afterwards we beam the player to the region which
+should already be defined in the WED and contain the beam thing. At the
+same time the player is given the X and Y positions of the beam actor and
+the height of floor in the target region. And then the key "b" is set to
+the next beam action. This way we get a toggle. </font>
+<br/> 
+<ul>
+<pre><font color="#66FFFF">ACTION beam_me {</font></pre>
+<pre><font color="#66FFFF"> SET PLAYER_X, beamer.X; </font><font color="#FF6666">//Set Player X-Position of Actors
+</font><font color="#66FFFF"> SET PLAYER_Y, beamer.Y; </font><font color="#FF6666">// Set Player to Y-Position of Actors
+</font><font color="#66FFFF"> SET HERE, beamer.REGION; </font><font color="#FF6666">//Set Target Region (Region of Target Thing)
+</font><font color="#66FFFF"> RULE Player_Z = HERE.FLOOR_HGT + PLAYER_SIZE;</font><font color="#FF6666">  //Calculates height of player
+</font><font color="#66FFFF"> SET IF_B, beam_me2; </font><font color="#FF6666">//Set key B to new action</font></pre>
+<pre><font color="#66FFFF">}</font></pre>
+</ul>
+<font color="#FFFFFF">And here again there are another beam actor, another
+target region etc.</font>
+<br/> 
+<ul>
+<pre><font color="#66FFFF">ACTOR Beamer2      {TEXTURE transparent_black_tex; FLAGS INVISIBLE;}</font></pre>
+</ul>
+<ul>
+<pre><font color="#66FFFF">ACTION beam_me2 {</font></pre>
+<pre><font color="#66FFFF"> SET PLAYER_X, beamer2.X;
+ SET PLAYER_Y, beamer2.Y;
+ SET HERE, beamer2.REGION; </font><font color="#FF6666">//Set target region
+</font><font color="#66FFFF"> RULE Player_Z = HERE.FLOOR_HGT + PLAYER_SIZE;</font><font color="#FF6666">  //Calculates height of player
+</font><font color="#66FFFF"># SET IF_B, beam_me3; </font><font color="#FF6666">//another beam action, otional and left out here</font></pre>
+<pre><font color="#66FFFF">}</font></pre>
+<h4>
+<font color="#FF0000">2. Player-Beam (Player is tricked)</font></h4>
+</ul>
+<font color="#FFFFFF">Now we are going to transport the player to another
+place on the map by adding or subtracting certain values to or from his
+position. Actions like that are best put to use when the player is not
+supposed to realise that he was beamed or if the topography demands such
+actions, e.g. when diving into an under water region that is not a below
+regions at the same time but does sport an entirely different topography
+below water (like ledges or grottoes). In such a case we transport the
+player into en entirely different region. The advantage you get from adding/substracting
+the values is obvious: if we assign the player a fixed position as a target
+like we did in the previous example, the movements may appear less than
+smooth if the player is beamend at the IF_ENTER of a region. Because how
+should we know at which point the player has entered the region or triggered
+an IF_DIVE? It doesn't matter when we are adding/subtracting. The player
+will always keep his apparent position.</font>
+<br/><font color="#FFFFFF">In order to do that we start with finding out
+what the target region. Set any vertex in the start region, and another
+one in the target region. Connect the vertices and read the length of the
+wall that was created from the status line below. Lets assume that we need
+to take 1000 Steps in direction of y, east from the point of view of the
+zero point. So we need to add. For the sake of simplicity we should also
+make sure that the player is not moved diagonally across the map, but only
+in direction of x or y. The beam action itself we assign to an IF_ENTER
+of the start region. </font>
+<br/> 
+<ul>
+<pre><font color="#66FFFF">REGION startregion {</font></pre>
+<pre><font color="#66FFFF">    CEIL_HGT    0;
+    FLOOR_HGT   12;
+    CEIL_TEX    Decke_tex;
+    FLOOR_TEX   boden_tex;
+    IF_ENTER    beam_me_up_scottie;
+}</font></pre>
+<pre> <font color="#66FFFF">REGION zielregion {
+    CEIL_HGT        0;
+    FLOOR_HGT       12;
+    CEIL_TEX        Decke_tex;
+    FLOOR_TEX       boden_tex;
+   }</font></pre>
+ And now the beam action::
+<br/> 
+<pre><font color="#66FFFF">ACTION beam_me_up_scottie {</font></pre>
+<pre><font color="#66FFFF"> ADD PLAYER_Y, 1000; </font><font color="#FF6666">//Adding the beaming value to the Y position of the Actor
+</font><font color="#66FFFF"> SET HERE, Zielregion; </font><font color="#FF6666">//Set target region 
+</font><font color="#66FFFF"> RULE Player_Z = HERE.FLOOR_HGT + PLAYER_SIZE;</font><font color="#FF6666">  //Height of player is calculated
+</font><font color="#66FFFF"> }</font></pre>
+</ul>
+ 
+<br/> 
+<ul><b><font color="#FF0000">3. Finding the region/Synonyms</font></b></ul>
+<font color="#FFFFFF">Another little specialty to close this part: the
+good old Skaphander had a service level the player could beam himself to
+at any time using the ESC button, in order to save scores, change options
+or just rest a little. Pressing the ESC button one more time beamed him
+right back to the very spot in the level he left when he beamed himself
+into the service level. But how do you keep in mind the respective region?</font>
+<p><font color="#FFFFFF">You can use a synonym to achieve this elegantly
+with a single line. But what is a "SYNONYM"? A synonym is something standing
+in for something else. Our WDL allows us to define different types of synonyms.
+A few are pre-set: HERE, THERE (and everywhere..),MY, etc.</font>
+<p><font color="#FFFFFF">But we are allowed to define as many synonyms
+as we please. And here's how:</font>
+<br/><font color="#000000"> </font>
+<pre>    <font color="#66FFFF">SYNONYM  mein_herzschrittmacher {TYPE ACTOR;}</font></pre>
+The following TYPE's are allowed:  <font color="#FFCC00">OVERLAY,
+TEXTURE, WALL, THING, ACTOR, REGION, PANEL, TEXT, STRING oder ACTION.</font>
+<p><font color="#FFFFFF">In our case we are going to need a synonym of
+the REGION type, because we want to adress a region. And so the line goes: </font>
+<br/><font color="#000000"> </font>
+<pre>    <font color="#66FFFF">SYNONYM    LastRegion {TYPE    REGION;}</font></pre>
+<font color="#FFFFFF">Of course we also need to remember the old x and
+y positions of the player. This we do with simple skills: </font>
+<br/> 
+<ul>
+<pre><font color="#66FFFF">SKILL Last_x {}</font></pre>
+<pre><font color="#66FFFF">SKILL Last_y {}</font></pre>
+<pre><font color="#66FFFF">SKILL Last_z {}</font></pre>
+</ul>
+And the beam-action:
+<ul>
+<pre><font color="#66FFFF">ACTOR Beamer3      {TEXTURE transparent_black_tex; FLAGS INVISIBLE;}</font></pre>
+</ul>
+<ul>
+<pre><font color="#66FFFF">ACTION beam_me3 {</font></pre>
+<pre><font color="#66FFFF"> SET Last_X, Player_x;        </font><font color="#FF0000">//this is where we remember the old positions
+</font><font color="#66FFFF"> SET Last_Y, Player_y;
+ SET Last_Z, Player_Z;</font></pre>
+<pre><font color="#66FFFF"> SET LastRegion, HERE;        </font><font color="#FF0000">//and here we remember the old region!
+</font><font color="#66FFFF"> SET PLAYER_X, beamer3.X;
+ SET PLAYER_Y, beamer3.Y;
+ SET HERE, Beamer3.REGION;
+ RULE Player_Z = HERE.FLOOR_HGT + PLAYER_SIZE;</font><font color="#FF6666">  </font><font color="#FF0000">//height of player is calculated
+
+</font><font color="#66FFFF"> SET IF_ESC, beam_me_back;</font></pre>
+<pre><font color="#66FFFF">}</font> 
+
+<font color="#66FFFF">ACTION beam_me_back {</font></pre>
+<pre><font color="#66FFFF"> SET Player_X, Last_X;        </font><font color="#FF0000">//here we set the old positions
+ </font><font color="#66FFFF">SET Player_Y, Last_Y;
+ SET Player_Z, Last_Z;
+ SET HERE,LastRegion;        </font><font color="#FF0000">//the whole thing backwards!
+</font><font color="#66FFFF"> SET IF_ESC, beam_me3;</font></pre>
+<font color="#66FFFF">}</font>
+<br/> </ul>
+<font color="#FFFFFF">There is another way to assign the player a new region:
+the command LOCATE, which is simply written into the action as a KEYWORD:</font>
+<br/> 
+<ul>
+<pre><font color="#66FFFF">ACTION beam_me_back {</font></pre>
+<pre><font color="#66FFFF"> SET Player_X, Last_X;        </font><font color="#FF0000">//here we set the old positions
+ </font><font color="#66FFFF">SET Player_Y, Last_Y;
+ SET Player_Z, Last_Z;
+ SET IF_ESC, beam_me3;</font></pre>
+<pre><font color="#66FFFF"> LOCATE;</font></pre>
+<font color="#66FFFF">}</font>
+<br/> </ul>
+<font color="#FFFFFF">This command makes sure that the player will find
+his way back to his region. But it does use up a lot of computing time,
+depending on the size of the WMP! That's why we use this command only when
+loading a completely new level.</font>
+<ul>
+<hr width="50%"/></ul>
+<h2>
+<a name="Anker2"></a><font color="#FF0000">Markus Fabian: Textures from
+the Faller Archives!</font></h2>
+<font color="#FFFFFF">Here is a simple but quite useful tip from one of
+our readers: whoever's fed up with browsing through cheap CDs, looking
+for textures fit for walls, floors, ceilings etc. only to find out that
+the damn things aren't tiled and need to be edited with DPaint or PSP anyhow,
+is advised to contact his nearest toy shop carrying toy trains. Because
+for years a company called Faller has been offering cardboards with wall
+textures sized 25x12.5 cm to DIY Railway fans. And these textures (stone,
+brick, clinker) are tiled! So all you need to do is scan them and adjust
+them to the respective palette.  </font>
+<br/><font color="#FFFFFF">There is bound to be an equivalent available
+to our American friends (who knows, maybe Faller is even selling in the
+USA). The cardboards tested by us are called:</font>
+<br/><font color="#000000"> </font>
+<ul>
+<ul><font color="#66FFFF">HO 605 (Clinker)</font>
+<br/><font color="#66FFFF">HO 610 (Quarry)</font>
+<br/><font color="#66FFFF">HO 607 (Industrial bricks)</font>
+<br/> 
+
+<p><font color="#66FFFF">To those who do not own a scanner: many photo
+shops offer that service! And you can order from Faller under the following
+number: 07723 - 6510.</font>
+<br/> 
+<br/> 
+<br/> </p></ul>
+</ul>
+<hr width="50%"/>
+<p> 
+<br/> 
+<h2>
+<a name="Anker4"></a><font color="#FF00FF">Of Mice and Men</font></h2>
+ 
+
+<p><font color="#FFFFFF">No mouse: no clicks. An adventure without clicks
+is not an adventure. And 3D Games usually don't include click actions.
+But that is not so with ACKNEX, which is supposed to work as an action-
+as well as an adventure-engine. In order to bring a mouse pointer to the
+screen, we need to draw it first. The file we then give a name like "arrow.pcx"
+and assign it to the overlay:</font>
+<br/> 
+<ul>
+<pre><font color="#66FFFF">OVLY        mouse_ovr,&lt;arrow.pcx&gt;;</font></pre>
+<pre><font color="#66FFFF">OVERLAY     mouse_sprite { OVLYS mouse_ovr; }</font></pre>
+<pre><font color="#66FFFF">MSPRITE     mouse_sprite;</font></pre>
+</ul>
+<pre><font color="#FFFFFF">That's all! And now: the action activating the mouse:</font><font color="#000000"> 
+
+
+</font><font color="#66FFFF">ACTION mouse_toggle {</font></pre>
+<ul>
+<pre><font color="#66FFFF"> ADD   MOUSE_MODE,    2;    </font><font color="#FF0000">//in Mode 1 the mouse influences player movement. 
+</font><font color="#66FFFF"> IF_ABOVE MOUSE_MODE, 2;
+ SET MOUSE_MODE,      0;
+ IF_EQUAL MOUSE_MODE, 0;
+    END;</font></pre>
+<pre><font color="#66FFFF">loop:</font></pre>
+<pre><font color="#66FFFF"> WAIT   1;
+ RULE  MOUSE_X = MOUSE_X + 2*MICKEY_X;  </font><font color="#FF0000">//requesting the current mouse position.
+</font><font color="#66FFFF"> RULE  MOUSE_Y = MOUSE_Y + 2*MICKEY_Y;
+ IF_ABOVE MOUSE_MODE,0;
+    GOTO loop;</font></pre>
+<pre><font color="#66FFFF">}</font></pre>
+</ul>
+<font color="#FFFFFF">And that's all there is to it. If you want the mouse
+to display something when touching upon a certain point in the level, we
+still need textures with</font><font color="#000000"> </font><font color="#FFFF00">TOUCH,
+IF_KLICK </font><font color="#FFFFFF">etc.</font><font color="#000000">
+</font><font color="#FFFFFF">Quite simple, that one.</font>
+<p><font color="#FFFFFF">To define a texture with touch we proceed as follows:</font>
+<br/><font color="#FFFFFF">To begin with a FONT, because nobody can write
+without letters:</font>
+<br/><font color="#000000"> </font>
+<ul>
+<pre><font color="#66FFFF">FONT    show_font, &lt;show.pcx&gt;,12,12;</font></pre>
+</ul>
+<font color="#FFFFFF">where the parameter following the assigning of the
+file give the width and height of the single letters in pixels. Do not
+forget:</font>
+<br/><font color="#FFFFFF">the bitmap must either contain </font><font color="#000000">
+</font><font color="#FFFF99">11, 128, or 256</font> <font color="#000000">
+</font><font color="#FFFFFF">characters (because of the proportions). If
+that is not the case, you'll get an ugly error message!</font>
+<p>And then a string, 'cause what else are we supposed to read?
+<ul>
+<pre><font color="#66FFFF">STRING    screwdriver_str, "This is a screwdriver!";</font></pre>
+</ul>
+<font color="#FFFFFF">And now, finally, the definition!</font>
+<ul>
+<pre><font color="#66FFFF">TEXTURE show_me {
+    SCALE_XY   16,16;
+    BMAPS      yep;
+    FONT       show_font;  // </font><font color="#FF6666">To put out a string, we need a font!
+</font><font color="#66FFFF">    TOUCH      Schraubenzieher_str;  //  </font><font color="#FF6666">Even this string t´need to be defined somewhere!</font></pre>
+<pre><font color="#66FFFF">}</font></pre>
+</ul>
+This <font color="#FFFF99">Texture</font> we assign to a <font color="#FFFF99">Thing</font>
+or an <font color="#FFFF99">Actor.</font><font color="#000000"> </font><font color="#FFFFFF">Each
+time our mouse pointer slides across the central pixels of this Thing or
+Actor, the text</font><font color="#000000"> </font><font color="#66FFFF">"This
+is a screwdriver!" </font><font color="#FFFFFF">appears</font>. Hopefully!
+
+<p><font color="#FFFFFF">And now add an IF_KLICK. Assigning it is as easy
+as making a cake (even though nobody seems to be able to do that properly!).
+Simply define a TEXTURE with an IF_KLICK:</font>
+<br/> 
+<ul>
+<pre><font color="#66FFFF">    TEXTURE     Tuer_auf_tex {
+        SCALE_XY        16,16;
+        BMAPS           tuer_tex;
+        IF_KLICK            aufmach;
+}</font></pre>
+</ul>
+And that's all! The   <font color="#FFFF99">ACTION</font> "Aufmach"
+( means: open up)  should be there as well of course. It doesn't matter
+whether the actions triggers a shot, paints the player blue of returns
+the string "Gotcha!", but an <font color="#FFFF99">ACTION</font> it must
+be! !
+<br/>Have fun!
+
+<p><font color="#FFFFFF">Next issue we'll concern ourselves with actions
+that catapult the player through tubes, move floor textures and similar
+neat effects.</font>
+<br/> 
+<br/> 
+<br/> 
+<br/> 
+
+<p> 
+</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></body>
+</html>
