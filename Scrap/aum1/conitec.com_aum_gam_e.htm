@@ -1,0 +1,225 @@
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="Acknex Users Magazine Games" name="keywords"/>
+<meta content="Mozilla/4.0b3 [en] (Win95; I) [Netscape]" name="GENERATOR"/>
+<title>Games</title>
+</head>
+<body alink="#0000FF" background="maintex.jpg" bgcolor="#004040" link="#FF0000" text="#FFFFFF" vlink="#FF00FF">
+<h2>
+<img height="100" src="conitec.com_aum_glueh.gif" width="95"/>Actual Acknex Games:</h2>
+<ul>
+<ul>
+<ul>
+<ul>
+<ul>
+<h1>
+<blink><font color="#FF0000">ANGST</font></blink></h1>
+</ul>
+</ul>
+</ul>
+</ul>
+</ul>
+<img height="49" src="conitec.com_aum_leiste.jpg" width="916"/>
+<br/>
+<br/><font color="#AED807"><font size="+1">Welcome to the games column. Here we
+would like to introduce games that were produced using the Acknex toolkit.
+What you won't find here is a critique in the style of a game magazine,
+evaluating the games according to different criteria like "music", "graphics"
+etc. and a final score for "fun'n'excitement;". We will hand out percentages,
+though, but no final score, and the criteria will be concerning the necessities
+of the ACKNEX game engine. So even if the graphics should be beyond redemption,
+we won't critizise the quality of the graphics, but whether the texture
+was used in a sensible and correct way.</font></font>
+<br/>
+<br/><font color="#AED807"><font size="+1">As we won't be able to review the entire
+world market, we are always grateful for suggestions and having our attention
+drawn to ACKNEX games.</font></font>
+<br/>
+<br/>
+<hr width="50%"/>
+<br/>
+<br/><font size="+1">The first game we are going to talk about in this column
+is called ANGST (wich means Fear) and was produced by ManMachine Games
+from Munich (see also our interview with MGI AndreasVahsen in this issue).</font>
+<br/><font size="+1">To say it straight away: We have found ANGST to be provokingly
+bad. Most entries to our level designer competition 1996 had a distinctly
+higher standard of quality than this game.</font>
+<br/><img align="LEFT" border="1" hspace="10" src="conitec.com_aum_angst1.gif" vspace="10"/><font size="+1">All
+the more surprising, that the game apparently sells quite well, even though
+the best score it got in a game magazine was 17%. How does that kind of
+lousy score come about? For once certainly because only 1 level designer
+was responsible for the whole show. It is simply impossible to push a truly
+professional game into the market in only five months if you're on your
+own. The question arises whether quality is indeed necessary, as long as
+the marketing works. Which is certainly the case with MGI .</font>
+<br/>
+<br/><font size="+1">Peter Ustinov was once asked why he wouldn't write film critques.
+He answered "because I know how much work it takes even to produce a bad
+film." And Alan Parker wrote in his production diary for 'The Commitments':
+"Whether the movie is great or lousy, I have to get a damn early in the
+morning!" That is why we won't simply and gleefully take the game apart,
+but try to pin down the problems.</font>
+<br/>
+<br/><font color="#FFFF00"><font size="+2">Textures don't fit</font></font>
+<br/>
+<br/><font size="+1">With textures one should always make sure that the player
+knows what he sees. That he won't have to guess too hard, relying on the
+context only. A wall arranged like glass bricks, the separate parts merely
+distinguishing themselves by being black without being the slightst bit
+transparent, does only generate confusion. Renaissance facades next to
+metal contruction looking like a dreadnaught simply appear out of context.</font>
+<br/><font size="+1">The problem ist, that the player does not get something that
+looks like it could be real. Virtuality of an apparently real is the essence
+of 3D Games. Even when visualizing a totaly futuristic and out-off-this-world
+scenario from another planet, an Auntie-Gertie flower pattern right next
+to a star cruiser control panel is going to unhinge us. Even a thoroughly
+boring car-park fitted with a single concrete structure has more mood and
+appears more convincing than that. In ANGST there are hardly two textures
+that go well together.</font>
+<h2>
+<br/>
+<font color="#00FF00">Textures were not aligned</font></h2>
+<font size="+1">WED does include a simple feature: Alignment. Walls are selected
+ceonsequtively (holding down SHIFT). All you have to keep in mind is that
+all side's noses (Right-Sides) are all pointing in the same direction,<img align="RIGHT" border="1" hspace="10" src="conitec.com_aum_angst3.gif" vspace="10"/>
+i.e. the player's point of view. If they are not, you can flip them with
+"F". After that all that remains to be done is pressing that one humble
+button "A" and all walls are aligned. Why this simple and grateful feature
+was in this case used with so much reluctance remains a mystery.</font>
+<h2>
+<font color="#FF0000">Animated actors all wrong</font></h2>
+<font size="+1">As for the first aggressor - some kind of ghost sceleton
+- the first thing to strike you is that he has a few faulty pixels (the
+palette is wrong in this case, same is true for the tank - again proving
+the point abot the same old adaptation problem!). Apart from that does
+the sceleton (as is the way of Sprites) always present the player one and
+the same side. With round and immobile objects this does not make much
+of a difference, but an animated actor with a WAY should by all means be
+at least defined with 8 SIDES. Else he will appear to move on invisible
+tracks. The delay of the texture phases (i.e. of the duration of the phases)
+should should by all means be adapted to the actor SPEED. The sceleton
+appears like a roller skater without the skates.</font>
+<h2>
+<font color="#FFFF00">Long objects with only one side</font></h2>
+<font size="+1">I have already pointed out the Sprites always present the
+viewer with the same side. Thus, in games like Doom, Duke Nukem, or Skapahnder
+you won't find any long objects like park benches, office desks, or sideboards.
+All these longish objects will give the impression that they are turning
+around, following the player movements. In the first level of ANGST only
+the well near the beginning fulfils this necessity. Still, the water in
+the well was sadly left un-animated.</font>
+<h2>
+<font color="#FF00FF">Sky with wrong Offset</font></h2>
+<img align="LEFT" border="1" hspace="10" src="conitec.com_aum_angst4.gif" vspace="10"/><font size="+1">As
+a sky texture is never scaled nor tiled, it's size needs to be adapted
+to the relative position. This is done by assigning a Y-OFFSET. If you
+ignore that or misadjust the offset (too high or too low), the sky may
+appear downwardly distorted to the player once he exceeds a certain height
+above the region's edge. ANGST produces ungainly stripes during the elevator
+ride in the first level. If the size of the image does not suffice to fill
+the background, so that no offset can be gauged, one should at least give
+a single colour to the lowest line of pixels. It should preferably be black
+in order to avoid producing stripes. NOTE: the uppermost and the lowest
+pixel of a SKY is prolonged endlessly by the Engine.</font>
+<h2>
+<font color="#F3E98D">Texture- and Region Heights</font></h2>
+<font size="+1">ANGST quite frequently confronts us with stone or metal tiles.
+In almost all cases this textures appear cut off at the upper or lower
+edges. I admit that measuring out a textures does take some mathematical
+aptitude. About as much as calculating how to make your wallpaper fit the
+wall .</font>
+<br/>
+<br/><font size="+1">If a wall was assigned the regional height of 12 steps and
+the texture' s original has a height of 128, you will get a scaling factor
+of 10,6 (128/12 = 10,66). As our stupid engine calculates the wall offsets
+from absolute zero only, the wall would only fit if our region had the
+floor height of 0. If that is not the case, the offset of the wall will
+have to be shifted until the texture fits exactly. In order to do that
+you'd best create an "Adjust-wdl" that is simply included at the beginning
+of the WDL. The shoot instruction then easily enables you to shift the
+x- and y- offset of a wall and have the values output on a panel. We will
+construct such an adjust panel in the next issue.<b> </b></font>
+<br/>
+<br/><b><font color="#98D12E"><font size="+2">Mood and Ambient</font></font></b>
+<br/>
+<br/><font size="+1">Even the very first ACKNEX demo of <a href="http://www.op-group.spacenet.de">oP
+group</a> used shadow and light. The Michelangelo level for the book GameStudio
+3D even had areas of coloured light on the floor. All of this was achieved
+with AMBIENT values high on contrast either assigned to the floor-texture
+or the region itself with the drawback that everything - floor, ceiling
+and walls - would be given that ambient. This rather simple technique allows
+you to model moody surroundings. ANGST almost entirely foregoes using AMBIENTs,
+even regions below bridges, that may indeed be expected to be somewhat
+darker, sport the same brightness as the surrounding region. BTW: the winner
+of the latest <a href="conitec.com_aum_contest.htm">contest</a> did quite a job working
+with regions of shadow and light.</font>
+<h2>
+<font color="#00FFFF">RESULT</font></h2>
+<font size="+1">The game story does neither hook nor does it bug anybody
+who likes to play 'shoot-em-ups' like this one.</font>
+<br/><font size="+1">The graphics of course are partly flawed. The sound quality
+is within the range of professionality and anyway, more than 11khz and
+8 Bit are not recommended when using Acknex, as the memory would otherwise
+overflow. The rendered opening titels are quite presentable indeed and
+the packaging is even first class. As matter of fact, the super title "ANGST"
+appears to be the single decisive selling proposition. This game is a good
+example for a poor product selling well through good sales and a top-notch<img align="RIGHT" border="1" hspace="10" src="conitec.com_aum_angst2.gif" vspace="10"/>hervorragendes
+packaging.</font>
+<br/><font size="+1">Still, ANGST is a botched job produced quick and dirty with
+an eye on getting it on the market fast. Neither was the concept developed
+sufficiently, nor did anybody invest too much time in ACTOR behaviour.
+Good ideas (you may set the tanks on opponents) are rather hard to grasp
+and distributed more or less at random. For example there is an actor in
+the first level shooting down the player while persistently missing him.
+The story does not really come across, and one asks oneself involnutarily
+what this is all about. Even smart ideas like the propeller plane in the
+final level go down unheede in the general pixel hodge-podge, especially
+as it can apparently not be shot down. Afterwards i spent considerable
+time trying to dive without any results, looking for the entrance to a
+huge fortress and getting killed each time I entered acertain region without
+ever finding out why.</font>
+<br/><font size="+1">The abilites of the engine were hardly realized: performance
+is below par despite low memory use, and the function of the several game
+elements like buttons and lifts is left entirely in the dark. Sometimes
+something happens on the space bar, sometimes nothing does, sometimes the
+engine returns an indisputable WDL error. Betatesting obviusly failed in
+this case, if it happened in the first place. For Conitec this game is
+not much of a reference.</font>
+<br/>
+<br/><a href="http://iguwnext.tuwien.ac.at/~duw"><img align="LEFT" border="1" height="80" hspace="10" src="conitec.com_aum_ndb.gif" vspace="10" width="114"/></a><font size="+1">In
+the next issue we will therefore turn to a more positive example the anti-fascist
+sponsor game "Der Name der Bruders", which does not propose to professionalism
+as much, but indeed delivers it rather more.</font>
+<ul>
+<h2>
+<font color="#FFFF00">AUM Score for "ANGST":</font></h2>
+</ul>
+<div align="right"><table border="">
+<tr>
+<td><b><font color="#FF0000">Actions</font></b>
+</td>
+<td>10%
+</td>
+</tr>
+<tr>
+<td><b><font color="#F3E98D">Topography</font> </b>
+</td>
+<td>15%
+</td>
+</tr>
+<tr>
+<td><b><font color="#00FFFF">Conceptual idea</font></b> 
+</td>
+<td>15%
+</td>
+</tr>
+<tr>
+<td><b><font color="#FF00FF">Innovation</font></b>
+</td>
+<td>5%
+</td>
+</tr>
+</table></div>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="Acknex Users Magazine hints" name="keywords"/>
+<meta content="Mozilla/4.0 [en] (Win95; I) [Netscape]" name="GENERATOR"/>
+<title>hints</title>
+</head>
+<body alink="#0000FF" background="maintex.jpg" bgcolor="#FFFFFF" link="#FF0000" text="#FFFFFF" vlink="#00B400">
+<h2>
+<img height="100" src="conitec.com_aum_glueh.gif" width="95"/></h2>
+<ul>
+<ul>
+<ul>
+<h2>
+<font color="#FF0000">Tips</font> and <font color="#FFFF00">Tricks</font></h2>
+</ul>
+</ul>
+</ul>
+<img height="49" src="conitec.com_aum_leiste.jpg" width="916"/>
+<p><font color="#00FFFF">A handbook is nice to have. The Conitec handbook
+is not nice and most of the time you need to have an IQ of 250 and 30 years
+of programming experience to use it for more than weightlifting. All the
+time we receive frantic calls for help from quite professional users all
+asking: How the hell do you get on with the handbook?</font>
+<br/><font color="#00FFFF">The answer is: not at all! I take a look at the
+handbook only in cases of most dire need. Most secrets we are told by the
+departement of development itself. And those secrets we shall herewith
+pass on! And not enough! This magazine is supposed to be a forum by users
+for users. Questions concerning our hints or of a general nature should
+be sent to the editors with the caption "Tips &amp; Tricks" via mail or
+snail mail or fax. There will be a page devoted to letters to the editor
+from the next issue where these special questions will hopefully be answered.</font>
+<br/><font color="#00FFFF">And whoever has found a solution to some special
+problem is hereby cordially invited to contribute to this magazine. The
+first one who actually took this to heart is Markus Fabian. He found a
+solution to the tiresome palette problem under Adobe-PhotoShop and magnanimously
+makes it availabel here.:</font>
+<p><a href="conitec.com_aum_palt_e.htm"><img border="1" height="45" hspace="10" src="conitec.com_aum_palgif.gif" vspace="10" width="45"/></a><font color="#80FFFF"><font size="+1">
+Palettes under Adobe Photo Shop</font></font>
+<br/> 
+
+<p>
+<hr width="50%"/>
+<p>Our first example may be a source of merriment to seasoned DOS users
+and I would like to ask anybody of that particular persuasion to scroll
+on until they encounter the title "<a href="#Anker5">Rotating regions"</a>,
+or simply click in the following list. Still there are many who always
+wanted to know how to run that darn DOS program under WIN95, but never
+dared to ask. So, just read on, nobody's looking!
+
+<p><font color="#FFFF00"><font size="+1">Themes in this Issue:</font></font>
+<table border="">
+<tr>
+<td><b><a href="#Anker1">Starting Toolkit</a></b> </td>
+<td><b><a href="#Anker2">Path in the Autoexec.bat</a></b> </td>
+<td><b><a href="#Anker3">What are regions?</a></b> </td>
+<td><b><a href="#Anker4">Below Regions</a></b> </td>
+<td><b><a href="#Anker5">Rotating Regions </a></b> </td>
+</tr>
+</table>
+<h2>
+<a name="Anker1"></a><font color="#808000">How do I start the engine in
+a DOS window?</font></h2>
+If you have never before started a program under DOS, don't panic! It's
+perfectly easy! Programs are always or mostly files with the extension
+".EXE" after the dot. EXE stands for the word "execute", which means that
+something is to be executed. All programs with this extension thus can
+be executed. These "executable" programs are situated in their DOS directories.
+So what you need to know is the name of the program, which in our case
+would be "WED.EXE" or, if you only own the Lite version, "WEDS.EXE".
+<br/>The next thing you need is the so called path. You know what a path
+is. There are paths in the forest, sometimes we strike a path through a
+library. Quite a few have called life a dire path. A path is nothing but
+the exact place where a file can be found. For example the path of your
+windows "directory" is C:\WINDOWS.
+<br/>"C:" indicating the current hard disk. The path of your toolkit is
+C:\GSTUDIO. This directory was automatically made during installation.
+So the complete path of your program is: C:\GSTUDIO\WED.EXE.
+<br/>The character "Backslash" separates the parameter.
+<br/>All you have to do is:
+<dir><font color="#00FFFF">Go to the windows start menue</font>
+<br/><font color="#00FFFF">Click on start in DOS mode</font>
+<br/><font color="#00FFFF">Wait until the screen goes black and the DOS
+prompt appears</font>
+<br/><font color="#00FFFF">Briefly wonder why it looks like that: C:\WINDOWS</font>
+<br/><font color="#00FFFF">Quickly enter "CD.." (INCLUDING the dots!!)</font>
+<br/><font color="#00FFFF">Notice that you are now in the main directory
+"C"</font>
+<br/><font color="#00FFFF">Enter "CD GSTUDIO" (INCLUDING the blank!!)</font>
+<br/><font color="#00FFFF">Be amazed, because the prompt now says C:\GSTUDIO_</font>
+<br/><font color="#00FFFF">Simply key in "WED" (because you'll never need
+the .EXE)</font>
+<br/><font color="#00FFFF">Then nothing will happen except that strange
+lists will start appearing on the screen.</font></dir>
+Obviously, as you haven't told the WED yet <font color="#00FF00">WHICH
+</font>file to start. Certain parameters are needed for that. What a parameter
+is? Well - try to imagine a gas station where they still have assistants
+serving you (I know, they don't exist any more, but please try). So you
+drive up to the guy and say: "fill it up, please!"
+<br/>And he says: "So? Whaddayatake?"
+<br/>And you say: "Regular unleaded, please."
+<br/>"Unleaded" would in this case be the parameter.
+<br/>In order to let the WED know which file to start, you have to tell
+it. As there is no level it could start in the main directory GSTUDIO you
+will again have to change to the respective directory, e.g. DEMO. Here
+again you'll need the usual DOS command "CD" (short for 'Change Drive').
+Thus:
+<ul><font color="#00FFFF">CD demo</font>
+<br/><font color="#00FFFF">The DOS prompt will now read C:\GSTUDIO\DEMO_</font></ul>
+To start the demo all you need is the following command: (where you separate
+all parameter by a blank)
+<ul><font color="#00FFFF">C:\GSTUDIO\WED VRDEMO.</font></ul>
+Now the VRDEMO will start in the SVGA mode. But as you may want to start
+it merely in the VGA mode, you will have to add one more parameter, declaring
+this "property parameter" with a minus sign:
+<ul><font color="#00FFFF">C:\GSTUDIO\WED VRDEMO -VGA</font></ul>
+Got me?
+
+<p>
+<hr width="50%"/>
+<h2>
+<a name="Anker2"></a><font color="#FF0000">How do I get my demo into the
+path?</font></h2>
+While talking computers you certainly have frequently encountered the phrase:
+<font color="#00FF00">Just write the file in the path!</font>
+<br/>and never dared to ask how to do just that. Or you dared but forgot
+afterward on a regular basis..
+<br/>And those bloody computer magazines are by now all so advanced, that
+they don't deal with THAT any more .
+<br/>So again and this time for keeps: How do I put a path into the Autoexec.bat?
+<br/>What the hell is the Autoexec.bat? It's another DOS file situated in
+the root directory. Every time the computer starts it reads this file.
+Not because it is curious, but because it might contain commands it is
+supposed to please execute when starting. It's a bit like your spouse telling
+you to:<font color="#FF00FF"> </font><font color="#00FF00">"please, could
+you bring some hoover bags when you come home from the office!"</font>
+<br/>If there isn't anything intresting to be found in the Autoexec.bat,
+the computer is happy. If there is, it will make an exact note of it. To
+begin with, you will have to edit the 'Autoexec.bat'. You can do that with
+any word processor. Under DOS there is a program called "EDIT". You can
+call it up with the command "Edit" followed by the name of the file to
+be edited, which in our case would be: <font color="#FFFF00">"Edit autoexec.bat".
+</font>You'll now get a file with so much gibberish. But somewhere your
+sore eyes will spot a line starting with the little word "PATH".
+<br/>You will certainly recognize a few file names appearing there. Now
+all you have to do is jump to the end of the line, insert a semi-colon
+and then add the path of your toolkit:<font color="#00FFFF"> C:\GSTUDIO</font>.
+<br/>What is that supposed to be good for? Well, now you won't have to key
+in endless paths when starting your WED. The computer will now always know
+where to find it. Even if you keep your game files somewhere else, e.g.
+in your own directory called MYGAME. How to make that? Well, there's another
+DOS command for that, and it goes:
+<ul><font color="#00FFFF">MD mygame</font></ul>
+It will make a directory for you, you can change to at any time with the
+good old "cd". And because you have already written the main directory
+GSTUDIO into the PATH you won't have to enter the longish C:\GSTUDIO\WED
+command from here, because now a simple <font color="#00FFFF">WED</font>
+will be enough.
+
+<p>
+<hr width="50%"/>
+<h2>
+<a name="Anker3"></a><font color="#FFFF00">What is a Region?</font></h2>
+The second most frequently asked question is the question of the region.
+What indeed is a region? I know a really well versed programmer, a good
+friend of mine, a doubtlessly very intelligent human being, but to this
+day he does not know, what a region is in ACKNEX.
+<br/>So it certainly is no shame not to have understood.
+<br/>I'll try to explain again (sigh). Try to imagine a wall. In front of
+it is the pavement. Behind it is a garden. And in between? Right. The wall.
+Now try to imagine which name the part of the wall facing the street would
+be given: street-wall. And towards the garden? Garden-wall And in between?
+We call it BORDER. It's massive. It's what separates regions from one another.
+There are a few problems with this example, because you abviously can look
+over a garden wall. As a matter of fact it is a region of it's own, called
+"wall", not BORDER. BORDER stretches from here to judgement day. BORDER
+really is infinte in direction of Y. Because when I move in a room in ACKNEX,
+there is no garden behind the house. There is only the tracing ray of the
+Raytracer who would disappear into infinity if I didn't give him a BORDER.
+That is why the example of the hollowed out meteorite is better.
+<br/><font color="#FFFFFF">Imagine a meteorite hovering in space</font>.
+It is solid. Said in ACKNEX that would mean that CEIL_HGT and FLOOR_HGT
+are identical.
+<ul>
+<pre><tt><font color="#00FFFF">REGION border {FLOOR_HGT 0;CEIL_HGT 0; }</font></tt></pre>
+</ul>
+Now we start to mill a room into the meteorite. This room is defined by
+the the difference between the height of the floor and the height of the
+ceiling. If the height of the floor is ZERO, the ceiling must at least
+be at zero point one (too small, of course) or better 12.
+<ul>
+<pre><tt><font color="#00FFFF">REGION Raum {FLOOR_HGT 0; CEIL_HGT 12; }</font></tt></pre>
+</ul>
+Thus we have created a first small region. In the WED we would notice that
+the right side of the wall, the "Rite Side", was given the region "Raum"
+and the left side, the "Left Side", the region "Border". Which is still
+the solid rock we mill our regions into!
+<br/>As Jesus said to Peter:" You are the rock I mill my regions from" or
+something like that...
+<br/>A further region ought to be different from the first one in order
+to become visible. This will be done by assigning it a different height
+of floor or ceiling.
+<ul>
+<pre><tt><font color="#00FFFF">REGION Raum2 {FLOOR_HGT 2; CEIL_HGT 12; }</font></tt></pre>
+</ul>
+The floor of the new room is 2 steps higher, so it should appear to be
+like a stage. Depending on which way I point the WALLs I will have region
+"Raum" (german word for 'room') on one side and region "Raum2" (german
+word for 'room2') on the other.
+
+<p>
+<hr width="50%"/>
+<h2>
+<a name="Anker4"></a><font color="#FF00FF">Below Regions</font></h2>
+One of the most important new features of the engine. Up to now it had
+not been possible to represent several regions on top of each other with
+raytracers. Bridges and tunnels, or even simple benches and desks were
+utterly impossible to do. As a consequence, raytracer worlds always appeared
+to be a bit stiff and unnatural. It is still quite remarkable what was
+achieved without that feature, on Doom, Skaphander, Dark Forces and Duke
+Nukem. In order to solve that problem, (this one and a few more), many
+game companies have switched to an entirely different engine principle,
+i.e. the polygon engine (Quake, MDK). Conitec will keep the faster raytracer
+engine, and adds to the features. The ACKNEX toolkit thus does include
+the only raytracer able to represent several regions on top of each other.
+As for now there is one small restriction which says that several of such
+regions may not be next to each other (like bridge and railing), without
+experiencing small errors when displayed. Yet - this restriction will soon
+be history - at least that is what the chief developer says.
+
+<p>The handbook does offer a complete documentation of how to construct
+below regions, but for the sake of understanding we will today again explain
+it. To begin with: the definition:
+<dir><font color="#FFFF00">The flag BELOW assigns a region a further region
+situated directly below it.</font>
+<br/><font color="#FFFF00">The region assigned in this way may again be
+assigned another BELOW region.</font>
+<br/><font color="#FFFF00">Any number of BELOW regions may be represented
+on top of each other.</font></dir>
+It goes without saying that you should keep the ceiling of the lower region
+from being HIGHER than the floor height of the upper region. Else you would
+get the ugly error message: "Region X belows itself!" already when pre
+rendering the engine.
+<br/>It is furthermore absolutely necessary that the lower regions ,i.e.
+those that were assigned as BELOW, are defined before and not after the
+topmost region in the WDL. NOTE: the editor does not know any below regions.
+It only reads the uppermost of all regions. It does not care, what is below
+them!
+
+<p>Example:
+<ul>
+<pre><tt>REGION unter_der_bruecke {<font color="#00FFFF">//that's our BELOW region!
+</font>FLOOR_HGT 0;
+CEIL_HGT 11.5;
+FLOOR_TEX fussboden_tex;
+CEIL_TEX holzdecke_tex;
+}
+REGION bruecke {
+FLOOR_HGT 12; <font color="#00FFFF">//floor height 0.5 Steps above ceiling of Below region!
+</font>CEIL_HGT 20; <font color="#00FFFF">//the ceiling of the hall through which our bridge might lead...
+</font>FLOOR_TEX fussboden_tex;<font color="#00FFFF">// we may set completely different textures!
+</font>CEIL_TEX steindecke_tex;
+BELOW unter_der_bruecke; <font color="#00FFFF">//which is where the BELOW region is assigned!
+</font>}</tt></pre>
+</ul>
+This definition produces a bridge of 0.5 steps bulk. Only one more problem
+needs our attention: the wall on the side of the regions on top of each
+other is not aligned, i.e. the flags PORTCULLIS and POSITION are not evaluated.
+In order to make the side walls of that kind of region fit exactly, you
+can use a few tricks which we are going to tell you about in our next issue.
+
+<p>
+<hr width="50%"/>
+<h2>
+<a name="Anker5"></a><font color="#FFAD39">Rotating a Region</font></h2>
+And now for the showcase! I bet you have already asked yourselves how they
+did that rotating lift in Duke Nukem. There not only the player was whirled
+about, (which had always been rather simple) but the whole region started
+to rotate around its own axis. In the old days actions like that had to
+be written by the level designers themselves. Angles needed to be calculated
+and EACH_TICK actions had to be evaluated and changed. But that has changed,
+because now there is the "ROTATE" command. This command is still executed
+at EACH_TICK of an action started by one of the usual events (IF_ENTER,
+IF_NEAR, IF_HIT etc..), but it contains only a few and easy to control
+parameter.
+<br/>First of all we need a "Genius", wich will be the center of our rotation.
+We just learned about this kind of actor, wich was placed when we created
+a light source. Define any actor and give it to the region, you want to
+be rotated. Then place that actor (doesn't matter if it's a visible one
+or not) inside of your region. If your region shall rotate with a centered
+axis, then place it in the middle. Should it be rotated like a door, put
+it on the edge of a rectangle. It's also possible to place the actor outside
+of the region, but this will be a new chapter...
+<br/>Now, the Actor:
+<ul>
+<pre><tt>ACTOR  angle_actor {TEXTURE black_tex;}</tt></pre>
+</ul>
+To begin with we shall define the regions of a cube (of course a below
+region):
+<ul>
+<pre><tt>REGION unter_cubus {<font color="#00FFFF">//that's our BELOW region!
+</font>FLOOR_HGT -2;
+CEIL_HGT 8;
+FLOOR_TEX Kassettentex;
+CEIL_TEX Kassettentex;
+GENIUS    angle_actor <font color="#00FFFF">//there is the genius!
+</font>AMBIENT -0.3; <font color="#00FFFF">//Below region now is darker than surroundings!
+</font>}
+
+REGION cubus {
+FLOOR_HGT 18;
+CEIL_HGT 22;
+FLOOR_TEX Kassettentex;
+CEIL_TEX Kassettentex;
+BELOW unter_cubus;
+}
+REGION Pond {
+FLOOR_HGT -2;
+CEIL_HGT 22;
+FLOOR_TEX Kassettentex;
+CEIL_TEX Kassettentex;
+}</tt></pre>
+</ul>
+We have defined a cube with a 10 step bulk. If the object is to appear
+as a cube it must be defined with a length of side of 10 steps in the WED.
+Apart from that we have assigned the below region a lower AMBIENT in order
+to create a shadow. And now for the action itself:
+<ul>
+<pre><tt>ACTION start_rotation {
+SET Cubus.EACH_TICK, rotate_cube;
+}
+
+ACTION rotate_cube {
+ROTATE unter_cubus,0.05; <font color="#00FFFF">// 0.05 Radius = ca. 3 Grad
+</font>ADD unter_cubus.CEIL_ANGLE,0.05; <font color="#00FFFF">//the radiant is added to the ceiling
+</font>}</tt></pre>
+</ul>
+Only the lower region is rotated here, as you can see the cube only from
+below. And only CEIL_ANGLE rotates, because the shadow may not rotate as
+well. With a rotating stage the FLOOR_ANGLE would of course have to be
+rotated as well. Of course you would now have to define a rotation sound
+which will be played either EACH_TICK (i.e. during the action) or as a
+single action when starting (like when starting and slowing down) and at
+the end of the action, but that you may well do at home now!
+<br/>You can assign the aciton to a key in order to start and to stop it.
+Define a toggle for that:
+<ul>
+<pre>I<tt>F_R start_rotation; <font color="#00FFFF">//action was assgined to the key "R"
+
+</font>ACTION start_rotation {
+SET EACH_TICK.1, rotate_cube;
+SET IF_R, stop_rotation; <font color="#00FFFF">// key R was redefined
+</font>}
+
+ACTION stop_rotation {
+SET EACH_TICK.1, NULL;
+SET IF_R, start_rotation;<font color="#FF0080"> </font><font color="#00FFFF">// key R was redefined again
+</font>}</tt></pre>
+</ul>
+Now we only have to get below or in front of the cube and press R: The
+cube rotates. Press R again, and the cube stops. R again and it rotates...etc.
+From now to eternity.
+<br/><font color="#FFFF00">Amen.</font>
+<p><a href="conitec.com_aum_start_e.htm"><img border="0" height="35" src="conitec.com_aum_button2.jpg" width="37"/></a><font size="+1">Back
+to start</font>
+</p></p></p></p></p></p></p></p></p></p></p></p></body>
+</html>

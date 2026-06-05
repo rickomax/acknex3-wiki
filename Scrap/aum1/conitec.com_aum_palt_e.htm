@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Defining palettes with Adobe Photoshop 4.0 under Windows 95</title>
+<meta content="Acknex Users Magazine Palette" name="keywords"/>
+<meta content="Mozilla/3.01Gold (Win95; I) [Netscape]" name="GENERATOR"/>
+</head>
+<body alink="#FF0000" background="maintex.jpg" bgcolor="#FFFFFF" link="#FF0000" text="#FFFFFF" vlink="#551A8B">
+<h1><img height="100" src="conitec.com_aum_glueh.gif" width="95"/><br/>
+<font color="#FFFF00">Defining palettes with</font> <font color="#80FFFF">Adobe
+Photoshop 4.0<br/>
+</font>under Windows 95</h1>
+<h4>by Markus Fabian</h4>
+<ul>
+<p>
+<hr/><br/>
+Defining a palette confronts newcomers to the area of 3D production (like
+for example the author of this little introduction) with apparentyl unsolveable
+problems: how do I get a grip on the colour shading that is elemental for
+shading?<br/>
+The following will introduce you step-by-step to a way of using the Adobe
+Photoshop to produce your own palette as PCX file and how to colour your
+images with it. As the extemporations are a little detailed, you might
+want make a hard copy of the page and go through it offline. </p>
+</ul>
+<h3><font color="#FFFF00">Step 1</font></h3>
+<ul>
+<p>Start the Adobe Photoshop and chose <b>FILE/NEW...</b>. In the following
+menue chose 160 x 160 pixel as the size of the image and <b>RGB Color</b>
+as its colour. As we are going to need an image with 256 colours as a palette,
+chose <b>IMAGE/MODE/INDEXED COLOR...</b>. In the following menue chose
+<b>CUSTOM</b> as palette, as we want to design our own palette. it will
+appear right away, showing only black quadrangles, which we will intially
+accept right away with <b>OK</b>. </p>
+</ul>
+<h3><font color="#FFFF00">Step 2</font></h3>
+<ul>
+<p>Before starting to manipulate the single colours you should do two things:</p>
+<p>a) chose a Colour Picker<br/>
+b) decide on the distribution of the colours on the palette.</p>
+<p>The Color Picker is the very menue you will use to mix your colours.
+Adobe Photoshop uses its own picker as default, it allows you to define
+your colours in all possible ways. If you're not an illustrator and do
+not know the various terms, or simply want to follow this example, use
+the Color Picker of MS Paint - you can select it under <b>FILE/PREFERENCES/GENERAL...</b>.</p>
+<p>The distribution of the colours on the palette is as follows:: <b>colour
+0 (zero)</b>, the <font color="#FFFF00">transparent</font> colour, is in
+the <b>lower</b>,<b> right corner</b> and colour 1 (one), the <font color="#FFFF00">darkest</font>
+colour in the shading range, is in the field on the left to it. The palette
+is read <b>from right to left</b> and <b>from down upwards</b> - but <b>only</b>
+with <i>Adobe Photoshop</i><tt>,</tt> other graphics tools my differ completely
+on that issue (like DPaint), because each has its <i>own </i>palette representation.
+Thus, the other way around: the <b>last</b> colour, number 255, is on the
+<b>upper left</b>, the rest of the palette follows out usual reading direction
+counting downwards:<br/>
+254, 253, 252... okay, I can see, you're following me. </p>
+</ul>
+<h3><font color="#FFFF00">Step 3</font></h3>
+<ul>
+<p><img align="RIGHT" height="324" src="conitec.com_aum_pickgif.gif" width="453"/>Chose <b>IMAGE/MODE/COLOR
+TABLE...</b>. The palette will appear and we may now begin to define our
+colours: simply click on one of the colour fields (best to begin with colour
+0 on the lower right) and the menue will appear on the right (onyl half
+of it to begin with):</p>
+<p>To define the transparent and the darkest colour simply click on the
+"colours" white and black in the basic colours of the picker
+and chose <b>OK</b>. To define a new colour, click on one of the 16 free,
+white fields below the basic colours (preferably on the field on the upper
+left side which is already coloured red) and select <b>Define colour</b>.
+The fields <b>Colour,</b> <b>Saturation</b> and <b>Light</b> you can now
+use to define the desired colours.<br/>
+Start with colour 16, i.e. the field on the utter right in the last but
+one row, directly above colour 0 (You still follow me, don't you?). The
+rest of the first row you should keep available for colours that are not
+to be shaded - colour the fields pink to begin with (cf. basic colours,
+right row, middle) so that you may spot faulty pixels right away.</p>
+</ul>
+<h3><font color="#FFFF00">Step 4</font></h3>
+<ul>
+<p>For the beginning (and the predesigned palette to be found further down)
+the following setting is recommended for colour defintion: a value of 240
+for saturation for "real" colours, lower with washed ot colours
+and the value of 0 with shades of grey. The brightness of each colour should
+be available in 16 shades, starting with 230 and decreasing in steps of
+14 down to 20, starting with the <b>brightest</b> colour on the right.
+The colour ranges should contain the shades 0, 16, 24, 32, 48, 64, 88,
+104, 112, 132, 152, 176, 184, 224 and a range of shades of grey. As defining
+256 colours does require quite a bit of keyboard work you should now and
+then choose <b>OK</b> and save the file in the PCX format. You may then
+include it in your WDL file with <b>PALETTE <i>Name</i> {PALFILE &lt;<i>Name</i>.PCX&gt;;}</b>.
+The palette is now only missing the following ranges:</p>
+</ul>
+<p><font color="#80FFFF">RANGE 48,16; RANGE 64,16; RANGE 80,16; RANGE 96,16;
+RANGE 112,16; RANGE 128,16; RANGE 144,16; RANGE 160,16; RANGE 176,16; RANGE
+192,16; RANGE 208,16; RANGE 224,16; RANGE 240,16;</font></p>
+<h3><font color="#FFFF00">And now...</font></h3>
+<ul>
+<p><img align="LEFT" height="325" src="conitec.com_aum_palgif.gif" width="376"/>...your palette
+should look like this one here. All clear? Okay, forget about DIY and simply
+download our prefabricated palette <a href="http://conitec.com/aum/palpcx.zip">PALETTE</a>. (The
+colours 2 to 6 are already defined for use in the Automap, green for the
+Player, yellow for the actors, red for Things and shades of grey for the
+walls). That doesn't mean there is an end to defining, because not every
+image you introduce in your game is supposed to contain all colours included
+in the palette. Suppose you scan in an egyptian wall painting with lots
+of red and brown and assign it the palette PALETTE.PCX with your graphics
+tool. Now it may occur that (because of the natural course of the colours
+among each other) colours will appear in the finished texture that don't
+want to be there (e.g. the colours 0 to 15 you should by all means delete
+from the palette!). So you will need additional special palettes apart
+from the general palette, <b>colouring palettes.</b></p>
+<p>For that, mark all colours in the <b>Color Table</b>, that are <b>not</b>
+to be contained in the respective colouring palette and assign them the
+pink fault pixel (unless you are editing a piggy texture, in which case
+you might want to choose a different colour.... Save the palette as a separate
+ROTPAL.ACT, GRUENPAL.ACT etc. and load your image. Then choose <b>IMAGE/MODE/RGB
+COLOR</b> (if the image is alrady present in RGB) and immediately <b>IMAGE/MODE/INDEXED
+COLOR</b> - this change is elemental in getting the Adobe Photoshop to
+ask for a palette to return to 256 colours. Which is exactly where you
+step in and select <b>CUSTOM</b> and load the respective ACT file. Your
+image will then automatically be coloured with the colours of the palette.</p>
+<ul>
+<p>Good Luck!<br/>
+<br/>
+<br/>
+<br/>
+<a href="conitec.com_aum_hint_e.htm"><img border="0" height="35" src="conitec.com_aum_button2.jpg" width="37"/></a><b><font color="#FFFF00">back
+to Tips and Tricks</font></b><br/>
+</p>
+</ul>
+</ul>
+</body>
+</html>

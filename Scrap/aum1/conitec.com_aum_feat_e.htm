@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Features</title>
+<meta content="Acknex Users Magazine features" name="keywords"/>
+<meta content="Mozilla/3.01Gold (Win95; I) [Netscape]" name="GENERATOR"/>
+</head>
+<body alink="#0000FF" background="maintex.jpg" bgcolor="#FFFFFF" link="#FF0000" text="#FFFFFF" vlink="#00B400">
+<h2><img height="100" src="conitec.com_aum_glueh.gif" width="95"/></h2>
+<ul>
+<ul>
+<ul>
+<h1><font color="#FF0000">New Features</font> </h1>
+</ul>
+</ul>
+</ul>
+<p><img height="49" src="conitec.com_aum_leiste.jpg" width="916"/></p>
+<ul>
+<ul>
+<p><font color="#00FFFF">Even though CONITEC includes in each new release
+a documentation of the new features, we're asked quite frequently how one
+or the other feature may be used to good effect. So here are a few tips
+and suggestions from the WDL kitchen.</font></p>
+</ul>
+</ul>
+<h2><font color="#FF0000">1. Source of light</font></h2>
+<ul>
+<p>As yet there is no "Shadow-Mapping" i.e. real time computing
+of light sources and shadows. But there is a way to circumvent the annoying
+need for multiple definition of wall textures with different Ambients:<font color="#FFFF00">
+Albedo</font>, <font color="#00FF80">Lightangle</font> and <font color="#00FFFF">Genius</font>.<br/>
+<br/>
+<font color="#FFFF00">Albedo</font> is a texture flag allowing you define
+a limit between 0 and 1 concerning the variation of ambient An Albedo is
+defined as follows:</p>
+<ul>
+<p><tt><font color="#00FFFF">TEXTURE Wand_tex {SCALE_XY 16,16; BMAPS wand_map;
+ALBEDO 0.3; }</font></tt></p>
+</ul>
+<p>If in the head defintions of the WDL a <b>LIGHT_ANGLE </b>was set beforehand,
+the wall will now be lightened up or darkened depending on the angle ANGLE'.
+The wall texture of a column for example would now be darkened on the side
+pointing away from the angle, producing a nice 3D effect. LIGHT_ANGLE is
+definded in Radiant, thus for east: </p>
+<ul>
+<p><tt><font color="#00FFFF">LIGHT_ANGLE 0;</font></tt></p>
+</ul>
+<p>Additionally a so called GENIUS may be set for the respective region.
+A GENIUS is not a math coprocessor, but a simple ACTOR with a transparent,
+pixelsized texture. It could also be a real torch, or a fluorescent daisy,
+if you like. The ACTOR is defined like any other:</p>
+<ul>
+<p><tt><font color="#00FFFF">ACTOR Genius_Wirtshaus_im_Spessart {TEXTURE
+blacktex;}</font></tt></p>
+</ul>
+<p>And afterwards you assign the Genius to the region: <img align="LEFT" alt="Queste:Ratten" border="1" height="200" hspace="10" src="conitec.com_aum_q2_pip.gif" vspace="10" width="160"/></p>
+<ul>
+<p><tt><font color="#00FFFF">REGION gaststube {<br/>
+FLOOR_HGT 0;<br/>
+CEIL_HGT 22; <br/>
+FLOOR_TEX holzdiele_tex;<br/>
+CEIL_TEX holzcassette_tex;<br/>
+GENIUS Genius_Wirtshaus_im_Spessart;<br/>
+}</font></tt></p>
+</ul>
+<p>Now all you have to do is place the actor in the WED. Possibly where
+the light is supposed to come from. That's all. You may of course assign
+this actor to as many adjacent regions as you like, e.g. Region_Theke,
+Region_Kneipentisch, Region_Separee, etc. It then "shines" across
+borders, so to say. Because obviously a source of light is there for the
+whole pub.</p>
+</ul>
+<h2><font color="#FF0000">2. CD-AUDIO</font></h2>
+<ul>
+<p>Usually there are two ways to play music: using a WAVE file or a MIDI
+file. WAVE files are not recommended, because they use up huge amounts
+of memory. A "sampled" song of one minute duration needs 1 MB
+in the 11 khz format already, the 22 khz format even needs 2 MB. That is
+why such WAVE files are only produced for use in small levels containing
+the opening credits, because for a complete game level one minute of music
+will never be enough. Thus usually General Midi (GM) files are used. Here
+the song is plaed in real time by the respective sound card in FM qualitiy.
+This usually sounds awful, unless you are one of the lucky few who can
+call a Roland Wavetable their own (even a AWE32 still sounds rather unimpressive).
+Additionally you will find that seperate sound banks (IBK's) need to be
+produced for playing FM - a rather dire and thankless job.</p>
+<p>Now you may also play a song directly from a CD. For that, the CD player
+must be wired to the sound card internally or you can listen to the music
+with a headphone connected to the headphone outlet of the CD player. CD
+audio does of course only work after finishing loading the level completely,
+as the CD player can only then access the audio files on the CD. The quality
+of sound is then only limited by the abilities of modern sound mastering.
+Theoretically you may right away introduce Bruckner's TE DEUM as played
+by the Berlin Philharmonics under Karajan, or the original soundtrack for
+STAR WARS. All you need is a single command, which may be called up at
+your will during START ACTION or whenever, just like the PLAY_SONG command
+for Midi files:</p>
+<ul>
+<p><tt><font color="#00FFFF">PLAY_CD 1,10;</font></tt></p>
+</ul>
+<p>With the first parameter indicatingthe number and position of the respecitve
+audio track and the second parameter giving the maximum number of tracks
+on the disk. The only drawback of CD_AUDIO:</p>
+<ul>
+<li>Access time increases the further the write/read head of the CD-Player
+is from the audio track</li>
+<li>The user will have to make sure that his sound card is wired to the
+CD player.</li>
+<li>The game programmer has to go to a studio and does no longer have any
+excuses, if the music is no good......<br/>
+<br/>
+</li>
+</ul>
+</ul>
+<p><a href="conitec.com_aum_start_e.htm"><img border="0" height="35" src="conitec.com_aum_button2.jpg" width="37"/></a><b>back
+to start</b></p>
+</body>
+</html>
